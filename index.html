@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  دُنگ‌یار | Dongyar — © نوید شاهی. همهٔ حقوق محفوظ است.
+  Dongyar — Copyright (c) Navid Shahi. All rights reserved.
+-->
+<title>دُنگ‌یار | Dongyar</title>
+<meta name="application-name" content="Dongyar">
+<meta name="apple-mobile-web-app-title" content="Dongyar">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#0f6b66">
+<meta name="author" content="Navid Shahi">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+@font-face{font-family:Vazirmatn;src:url(vazirmatn.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--bg:#e9eeed;--card:#fff;--ink:#14262b;--mute:#5d6f73;--line:#cfdad8;--acc:#0f6b66;--accfg:#fff;--debt:#b3412c;--cred:#1d7a4a;--soft:#f3f7f6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b1d;--card:#172629;--ink:#e6f0ee;--mute:#93a8a6;--line:#2b4044;--acc:#4fc3b9;--accfg:#06201e;--debt:#f08a73;--cred:#6fd39b;--soft:#1d3033}}
+:root[data-theme="dark"]{--bg:#0f1b1d;--card:#172629;--ink:#e6f0ee;--mute:#93a8a6;--line:#2b4044;--acc:#4fc3b9;--accfg:#06201e;--debt:#f08a73;--cred:#6fd39b;--soft:#1d3033}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+main{max-width:640px;margin:0 auto;padding:20px 14px 60px}
+h1{font-size:28px;font-weight:800;margin:6px 0 2px}
+h2{font-size:17px;font-weight:800;margin:0 0 6px}
+.sd{font-size:13.5px;color:var(--mute);line-height:1.9;margin:0 0 14px;font-weight:400}
+.kv{font-size:15px}.kv b{font-size:20px}
+.sub{color:var(--mute);margin:0 0 18px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+input,select,button{font:inherit;color:inherit}
+input[type=text],input:not([type]),select{width:100%;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+label.f{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
+.row{display:flex;gap:8px;align-items:center}
+button{cursor:pointer;border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:8px 14px}
+button.p{background:var(--acc);color:var(--accfg);border-color:var(--acc);font-weight:600}
+button.x{padding:2px 9px;color:var(--debt)}
+.av{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:700;color:#fff;flex:none;vertical-align:middle;margin-inline-end:6px;line-height:1}
+.nm{display:inline-flex;align-items:center}.av.two{width:auto;min-width:36px;padding:0 6px;border-radius:99px;font-size:12px;letter-spacing:1px;white-space:nowrap}.scroll .av{width:22px;height:22px;font-size:11px;margin-inline-end:4px}.scroll .av.two{width:auto;min-width:32px;padding:0 5px;font-size:11px}.nf{display:flex;gap:8px}.nf input{flex:1;min-width:0}
+.stat{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:16px}.stat summary{font-weight:600;cursor:pointer}
+.srow{display:flex;justify-content:space-between;gap:8px;font-size:14px;margin-top:6px}
+.sbar{margin-top:10px}.sbar .l{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px}.sbar .tk{height:8px;background:var(--line);border-radius:99px;margin-top:4px;overflow:hidden}.sbar .tk i{display:block;height:100%;border-radius:99px}
+.dtr select{flex:1;min-width:0}.dt{font-size:12px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{display:flex;align-items:center;gap:4px;background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:2px 4px 2px 12px}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;background:transparent;font-size:14px}
+.seg button.on{background:var(--acc);color:var(--accfg);font-weight:600}
+.pr{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.pr:last-child{border:0}
+.pr .n{flex:1}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--acc)}
+.pr input.amt{width:130px}
+#parts .pr{flex-wrap:wrap}.its{flex-basis:100%}.it{display:flex;gap:8px;margin:4px 0}.it .inm{flex:1;min-width:0}.it .iamt{width:120px}.ib{white-space:nowrap;padding:6px 10px}.ib:disabled,#shadd:disabled,#shl button:disabled{opacity:.4}.shi{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:var(--soft);border-radius:10px;margin-bottom:6px}.eq2{font-size:12px;opacity:.7}.sgr{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;background:var(--soft);border-radius:10px;margin-bottom:6px}.sgr>span:first-child{flex:1;min-width:150px}.sgr small{font-size:12px;opacity:.75}.mut{margin:8px 0 4px;color:var(--mute);font-size:14px}[data-lk]{opacity:.45;pointer-events:none}.shi{flex-wrap:wrap}.shi>div{flex:1;min-width:170px}.shi b,.shi span{white-space:nowrap}.eq2{white-space:normal}#shdraft>input{margin-bottom:6px}#shwho{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0}#parts .hl:empty{display:none}.sm{margin-inline-start:auto}.sm{font-size:13px;white-space:nowrap}.sm b{font-size:15px}.eq{flex-basis:100%;font-size:12px;opacity:.7;direction:ltr;text-align:right}.pr.off .n{opacity:.45}.its{background:var(--soft);border-radius:10px;padding:8px}.itf{display:flex;gap:8px;margin-top:6px}
+.chk{display:flex;gap:8px;align-items:center;margin-top:12px}
+.err{color:var(--debt);font-size:14px;min-height:22px;margin-top:8px}
+.prev{background:var(--soft);border-radius:10px;padding:8px 12px;margin-top:10px;font-size:14px}
+.ex{padding:10px 0;border-bottom:1px solid var(--line)}
+.ex:last-child{border:0}
+.ex .t{display:flex;justify-content:space-between;gap:8px;font-weight:600}
+.ex .d{font-size:13px;color:var(--mute)}
+.sh{margin:4px 0 8px;max-width:340px}
+.sh>div{display:flex;justify-content:space-between;font-size:14px;padding:3px 0;border-bottom:1px dashed var(--line)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-weight:600;color:var(--mute);font-size:13px;text-align:right;padding:4px 6px 8px}
+td{padding:8px 6px;border-top:1px solid var(--line)}
+.deb{color:var(--debt);font-weight:600}.cre{color:var(--cred);font-weight:600}
+.tr{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 12px;background:var(--soft);border-radius:10px;margin-bottom:8px}
+.tr .pbox{flex-basis:100%}
+.tr>span.row{flex-wrap:wrap;justify-content:flex-end}.tr button,.tr b{white-space:nowrap}
+.empty{color:var(--mute);font-size:14px}
+.scroll{overflow-x:auto}
+.sg{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:12px;background:var(--soft)}
+.sg select{margin-top:6px}
+button:disabled{opacity:.45;cursor:not-allowed}
+#toast .tundo{margin-inline-start:14px;background:none;border:1px solid currentColor;color:inherit;border-radius:99px;padding:2px 14px;cursor:pointer;font:inherit;font-weight:700}
+#toast{width:max-content;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:40;font-size:14px;max-width:90%;text-align:center}
+#tour{position:fixed;inset:0;z-index:31;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
+#tour[hidden]{display:none}
+#tour .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px 16px;max-width:360px;width:100%;text-align:center}
+#tour .ic{font-size:44px;line-height:1.2}#tour h3{margin:8px 0 6px;font-size:19px}#tour p{margin:0 0 14px;font-size:14.5px;line-height:2;color:var(--mute)}
+#tour .dots{display:flex;gap:6px;justify-content:center;margin-bottom:14px}#tour .dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}#tour .dots i.on{background:var(--acc)}
+#exPrev img{max-width:100%;border:1px solid var(--line);border-radius:8px;margin-top:10px}
+#dlg{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:20px}
+#dlg .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;max-width:340px;width:100%;text-align:center}
+.ev{cursor:pointer}.ev .t{font-size:18px}.ev .d{color:var(--mute);font-size:14px;margin:4px 0 10px}
+header#top,header.top2{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd{max-width:640px;margin:0 auto;padding:10px 14px}
+.hd h1{margin:0;font-size:22px}
+.mini{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--mute);margin:0 0 4px}.mini img{height:28px;width:auto;display:block}
+.hero{text-align:center;padding:calc(18px + env(safe-area-inset-top,0px)) 14px 4px}.hero img{width:min(62vw,230px);height:auto;display:block;margin:0 auto}
+img.lg{mix-blend-mode:multiply}
+:root[data-theme="dark"] img.lg{mix-blend-mode:normal;border-radius:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) img.lg{mix-blend-mode:normal;border-radius:14px}}
+.copy{text-align:center;color:var(--mute);font-size:12px;margin:26px 0 0}.copy b{font-weight:600}
+.bar{color:var(--mute);font-size:13px}
+main{padding-top:14px;padding-bottom:100px}
+nav#tabs{position:fixed;bottom:0;left:0;right:0;z-index:6;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav#tabs .in{max-width:640px;margin:0 auto;display:flex}
+nav#tabs button{flex:1;border:0;border-radius:0;background:transparent;padding:8px 4px;font-size:13px;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:0}
+nav#tabs button.on{color:var(--acc);font-weight:700}
+nav#tabs .ic{font-size:20px;line-height:1.3}
+details>summary{cursor:pointer;font-weight:600;padding:6px 0}
+[hidden]{display:none!important}
+/* ===== افراد گروه: فرم فشرده و لیست مرتب ===== */
+.cnt{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:0 10px;margin-inline-start:6px;vertical-align:middle}.cnt:empty{display:none}
+.sr{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+.addp .nf{display:flex;gap:8px}.addp .nf input{min-height:42px;padding:7px 12px;border-radius:11px;flex:1.25;min-width:0}.addp .nf input:first-child{flex:.8}
+.addrow{display:flex;align-items:center;gap:10px;margin-top:10px}
+.seg2{display:inline-flex;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:3px;gap:2px}
+.seg2 button{min-height:34px;padding:2px 14px;border:0;border-radius:9px;background:transparent;font-size:13.5px;color:var(--mute);white-space:nowrap}
+.seg2 button small{font-size:11px;opacity:.8}
+.seg2 button.on{background:var(--acc);color:var(--accfg);font-weight:700}
+.addrow .p{margin-inline-start:auto;min-height:42px;padding:0 18px;flex:none}
+#people.chips,#wpeople.chips{flex-direction:column;gap:0;margin-top:12px}
+#people .chip,#wpeople .chip{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;padding:6px 0;gap:4px;min-height:50px}
+#people .chip .tg,#wpeople .chip .x,#people .chip .x{min-height:34px;padding:2px 10px;font-size:13px;border:0;background:transparent;color:var(--mute)}
+#people .chip .tg[data-kid]{border:1px solid var(--line);border-radius:99px;min-height:28px;padding:0 12px;font-size:12px;margin-inline-start:auto;color:var(--mute)}
+#people .chip .tg[data-ren]{color:var(--acc)}
+#people .chip .x,#wpeople .chip .x{color:var(--debt)}
+#wpeople .chip .x{margin-inline-start:auto}
+
+/* ===== v21: ظاهر بانکی، لمس راحت، ریسپانسیو ===== */
+:root{--r:16px;--sh:0 1px 2px rgba(20,38,43,.05),0 6px 18px rgba(20,38,43,.07);--tap:46px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sh:0 1px 2px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--sh:0 1px 2px rgba(0,0,0,.3)}
+body{font-size:15.5px;-webkit-text-size-adjust:100%}
+section{border-radius:var(--r);box-shadow:var(--sh);padding:18px;margin-bottom:16px}
+input,select,textarea{font-size:16px}
+input[type=text],input:not([type]),input[inputmode],select{min-height:var(--tap);border-radius:12px;padding:10px 14px}
+input[type=checkbox]{min-height:0}
+button{min-height:44px;border-radius:12px;padding:10px 18px;transition:background .15s,transform .05s}
+button:active{transform:scale(.98)}
+button.p{box-shadow:0 2px 8px rgba(15,107,102,.25)}
+button.x,.chip button,.tr button,.ib{min-height:36px;padding:6px 12px}
+.seg{border-radius:12px}.seg button{min-height:44px;border-radius:0}
+h2{font-size:17px;margin-bottom:8px}
+h3.grp{font-size:13px;font-weight:700;color:var(--mute);margin:20px 4px 8px;letter-spacing:0}
+.note{font-size:13px;color:var(--mute);margin:-4px 0 8px}
+.pill{display:inline-block;background:var(--soft);border:1px solid var(--acc);color:var(--acc);border-radius:99px;padding:0 10px;font-size:12px;font-weight:700;margin-inline-start:8px;line-height:1.7}
+.mini{justify-content:flex-start}
+.gear{margin-inline-start:auto;width:44px;height:44px;min-height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:transparent;border:0;color:var(--ink)}
+.gear:hover{background:var(--soft)}
+.hero{position:relative}.hero .gear{position:absolute;top:calc(8px + env(safe-area-inset-top,0px));inset-inline-end:8px}
+header#top,header.top2{box-shadow:0 1px 0 var(--line)}
+nav#tabs{box-shadow:0 -4px 16px rgba(20,38,43,.06)}
+nav#tabs button{min-height:60px;padding:8px 2px;font-size:12.5px;gap:2px;border-radius:0;position:relative}
+nav#tabs button.on::before{content:"";position:absolute;top:0;left:30%;right:30%;height:3px;border-radius:0 0 3px 3px;background:var(--acc)}
+nav#tabs .ic{font-size:22px}
+#newEv{min-height:54px;border-radius:14px}
+.ev{transition:box-shadow .15s}
+.ev .row{margin-top:2px}
+.ex>.row{margin-top:10px}
+#tour .box,#dlg .box{border-radius:20px}
+@media (max-width:359px){main{padding-inline:10px}section{padding:14px}.pr input.amt{width:104px}.it .iamt{width:96px}nav#tabs button{font-size:11.5px}h1{font-size:24px}}
+@media (min-width:768px){main,.hd,nav#tabs .in{max-width:720px}body{font-size:16px}section{padding:22px}}
+@media (min-width:1100px){body{background:var(--bg)}main,.hd,nav#tabs .in{max-width:760px}.hero img{width:260px}}
+
+.hl{display:flex;align-items:center;min-width:104px}
+.hl select{padding:4px 8px;font-size:13px}
+.tg{padding:0 8px;font-size:12px;color:var(--mute);border-radius:99px}
+textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font:inherit;line-height:1.9;resize:vertical}
+
+/* ===== v24: چرخ‌دنده با برچسب، لوگوی درشت‌تر، فرم افراد هم‌اندازه ===== */
+.gear{width:auto;min-width:44px;height:44px;padding:0 14px;gap:7px;border:1.5px solid var(--acc);background:var(--card);border-radius:99px;font-size:14.5px;font-weight:700;color:var(--acc);margin-inline-start:auto}
+.gear span{line-height:1}
+.gear:hover{background:var(--soft)}
+.hero .gear{top:calc(10px + env(safe-area-inset-top,0px));inset-inline-end:12px}
+.mini{gap:10px;font-size:16px;font-weight:800;color:var(--ink);margin:0 0 6px;align-items:center}
+.mini img{height:40px}
+.addp .nf{display:flex;gap:10px}
+.addp .nf input,.addp .nf input:first-child{flex:1 1 0;min-width:0;height:44px;min-height:44px;padding:0 12px}
+.addp input::placeholder{font-size:14px}
+.addrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.seg2{display:flex;height:44px;padding:3px;border-radius:12px}
+.seg2 button{flex:1;min-height:0;height:100%;padding:0 4px;font-size:14px;border-radius:9px}
+.addrow .p{width:100%;height:44px;min-height:44px;margin:0;padding:0 10px;font-size:16px;font-weight:700}
+@media (max-width:359px){.gear span{display:none}.gear{padding:0;width:44px}.mini{font-size:14.5px}}
+
+#people .chip .pn{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-inline-start:2px}
+#people .chip .tg[data-kid]{margin-inline-start:0}
+#people .chip .tg,#people .chip .x{padding:2px 7px}
+#people .chip{min-width:0;max-width:100%}#people .chip>button,#people .chip>.av{flex-shrink:0}
+@media (max-width:359px){#people .chip .tg[data-kid]{padding:0 8px;font-size:11px}#people .chip .tg,#people .chip .x{padding:2px 3px;font-size:12px}}
+
+/* ===== v25: فاصله‌ها کمتر، ستون باریک‌تر روی صفحه‌های عریض ===== */
+section{padding:14px 16px;margin-bottom:12px}
+h2{margin-bottom:6px}
+.err:empty{min-height:0;margin:0}
+.addp .nf{gap:8px}.addrow{gap:8px;margin-top:8px}
+.addp input,.addp input::placeholder{text-overflow:ellipsis}
+.addp .nf input,.addp .nf input:first-child{padding:0 10px}.addp input::placeholder{font-size:13px}
+.seg2 button{font-size:13.5px;padding:0 2px;white-space:nowrap}
+#people.chips,#wpeople.chips{margin-top:8px}
+#people .chip,#wpeople .chip{min-height:44px;padding:3px 0}
+#wiz2 .empty{margin:8px 0}
+@media (max-width:419px){.seg2{padding:2px}.seg2 button{font-size:12.5px;padding:0 1px}}
+.seg2 button[data-t=a]{flex:.75}.seg2 button[data-t=k]{flex:1.45}
+.addrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.seg2{min-width:0}.seg2 button{min-width:0;overflow:hidden}
+@media (max-width:339px){.addrow{grid-template-columns:minmax(0,1fr)}.seg2 button{font-size:13px}}
+@media (min-width:768px){main,.hd,nav#tabs .in{max-width:600px}section{padding:16px 18px}}
+@media (min-width:1100px){main,.hd,nav#tabs .in{max-width:600px}}
+
+/* ===== v26: طراحی یکدست و شیک‌تر — کنترل‌های متناسب، دکمه‌ها سر جای قبلی ===== */
+:root{--c:40px}
+body{font-size:15px;line-height:1.75}
+h2{font-size:16px;font-weight:800;margin-bottom:6px}
+.sd{font-size:13px;line-height:1.85;margin-bottom:10px}
+label.f{font-size:13px;margin:10px 0 4px;font-weight:600}
+section{border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,38,43,.04),0 4px 12px rgba(20,38,43,.05)}
+input[type=text],input:not([type]),input[inputmode],select{height:var(--c);min-height:var(--c);padding:0 12px;border-radius:10px;font-size:16px;line-height:1.2}
+select{padding-inline-end:6px}
+input[type=file]{height:auto;min-height:0;padding:8px;font-size:14px}
+button{min-height:var(--c);padding:0 14px;border-radius:10px;font-size:14.5px;font-weight:600}
+button.p{min-height:44px;font-size:15px;box-shadow:none}
+button.x,.chip button,.tr button,.ib,.ex .row button,.itf button,.tg{min-height:34px;padding:0 12px;font-size:13.5px}
+.seg button{min-height:var(--c)}
+.pr{padding:4px 0}.pr input.amt{width:120px}
+.it .inm,.it .iamt{height:36px;min-height:36px}
+.row{gap:8px}
+.chk{margin-top:8px}
+.prev{padding:8px 12px;margin-top:8px;font-size:13.5px}
+.ex{padding:8px 0}
+.ex .row{margin-top:8px}
+.tr{padding:10px 12px;margin-bottom:8px;gap:8px}
+.tr>span.row{flex-wrap:wrap;justify-content:flex-start;margin-inline-start:0}
+.tr b{font-size:15px}
+.stat{padding:8px 12px;margin-bottom:12px}
+/* settle: person rows */
+.pbal{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:4px}
+.pb{padding:9px 12px;border-top:1px solid var(--line)}.pb:first-child{border-top:0}
+.pb1{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pb2{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12.5px;color:var(--mute);margin-top:2px;padding-inline-start:32px}.pb2 b{font-weight:600;color:var(--ink)}
+.stc{font-weight:700;font-size:14px;white-space:nowrap}.stc.cre{color:var(--cred)}.stc.deb{color:var(--debt)}
+#newEv,#newE{min-height:48px;border-radius:12px}
+.gear{height:44px;min-height:44px;min-width:44px;padding:0 13px;font-size:14px}
+.gear svg{width:20px;height:20px}
+.mini img{height:38px}
+nav#tabs button{min-height:56px}
+.addp .nf input,.addp .nf input:first-child{height:var(--c);min-height:var(--c)}
+.addrow{gap:8px;margin-top:8px}
+.seg2{height:44px}.addrow .p{height:44px}
+#people .chip,#wpeople .chip{min-height:42px}
+@media (min-width:768px){section{padding:16px}}
+
+/* v27: tidy forms */
+#wnext,#wnext2{margin-top:14px;width:100%}
+#wiz1 .err:empty{display:none}
+#esec .r2{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+#esec .r2 .c1{flex:1 1 100px;min-width:0}
+#esec .r2 .c2{flex:1 1 auto;min-width:0}
+#esec .tdr .dtr{gap:5px;flex-wrap:nowrap}
+#esec .tdr .dtr select{flex:1 1 0;min-width:0;padding-inline:6px 2px}
+#esec .tdr #dd{flex:0 0 48px}#esec .tdr #dm{flex:1 1 80px}#esec .tdr #dy{flex:0 0 64px}
+#esec .pyr .mp{margin:0;flex:none;height:var(--c);white-space:nowrap}
+#esec label.f{margin:8px 0 3px}
+#esec .chk{margin-top:10px}
+#esec .chk small{display:block;margin-top:0}
+.rc{display:flex;align-items:center;gap:8px}.rcrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}.rcrow .f2{font-size:13px;font-weight:600;color:var(--mute)}
+.tr>.nm{flex-basis:100%}.tr>span.row{flex-basis:100%;justify-content:space-between;flex-wrap:nowrap}.tr>span.row b{flex:none}@media (max-width:379px){.tr>span.row{flex-wrap:wrap}}
+#rcTh{width:40px;height:40px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.ci{font-size:15px}
+.cardrow{flex-basis:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;color:var(--mute);padding-top:2px}
+.cardrow bdi{letter-spacing:.5px;color:var(--ink)}
+.exb{display:flex;flex-wrap:wrap;gap:8px}.exb button{flex:1 1 auto}
+#imgv{position:fixed;inset:0;z-index:32;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px}
+#imgv[hidden]{display:none}
+#imgv .box{max-width:560px;width:100%;text-align:center}
+#imgv img{max-width:100%;max-height:78vh;border-radius:12px;background:#fff}
+#imgv button{margin-top:12px}
+#catStat .tk i{background:var(--acc)}
+#esec>.row{margin-top:14px}#addE{flex:1 1 auto}
+
+/* v28 */
+#esec .tdr select{flex:none;width:auto;min-width:0;appearance:none;-webkit-appearance:none;padding:0 6px 0 18px;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%237a8b8e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left 6px center}
+#esec .tdr .c2{flex:none}
+#esec .tdr .c1{flex:1 1 110px}
+#esec .pyr{flex-wrap:nowrap}
+#esec .pyr .c1{flex:0 0 44%}
+#esec .pyr .mp{flex:1 1 0;min-width:0;white-space:normal;line-height:1.5;font-size:13.5px}
+#esec .amr{align-items:flex-end}
+#esec .amr .c1{flex:0 0 50%}
+.vw{display:contents}
+#esec .amr .vw .chk{flex:1 1 110px;min-width:0;margin:0;height:var(--c)}
+#esec .vw .note{flex-basis:100%;margin:2px 0 0;font-size:12px;line-height:1.7}
+#cat{width:auto;min-width:55%}
+#title::placeholder{font-size:13px}
+
+/* v29 */
+#esec .tdr{align-items:flex-start}
+.dc{display:flex;flex-direction:column;margin:0}
+.dc span{font-size:12px;font-weight:600;color:var(--mute);line-height:1.5;margin:10px 0 3px}
+#esec .tdr #dd,#esec .tdr #dm,#esec .tdr #dy{flex:none}
+#esec .tdr select{height:34px;min-height:34px;border-radius:9px;background-position:left 5px center}
+#esec .tdr .dtr{align-items:flex-start}
+#esec .tipr{align-items:flex-end}
+#esec .tipr #tip{flex:0 0 50%;width:50%}
+#esec .r2 .vw .chk{flex:1 1 110px;min-width:0;margin:0;height:var(--c)}
+.ph{display:flex;flex-direction:column;gap:2px;margin:10px 0 6px;font-size:13px}.ph span{color:var(--mute);font-size:12.5px}
+#payers .pr{display:flex;align-items:center;gap:8px;padding:5px 0}
+#payers .pl{display:flex;align-items:center;gap:8px;flex:1;min-width:0;margin:0}
+#payers .pl .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#payers .pr input.amt{flex:0 0 46%;width:46%}
+#payers .pr:not(.on) input.amt{opacity:.55}
+
+/* v30 */
+.newbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hh,80px));z-index:4;background:var(--bg);padding:8px 0 10px;margin:-8px 0 6px}
+#newE{width:100%;height:46px;font-size:16px}
+#esec .tdr select,#esec .tdr #dd,#esec .tdr #dm,#esec .tdr #dy{width:auto}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts button{flex:1 1 130px}
+#shnote{margin:6px 0 0;font-size:12px;line-height:1.7}
+#tipbox{margin-top:8px}#tipbox .row{gap:8px}#tipbox input{flex:1;min-width:0}
+#tot2{margin-top:10px}
+
+/* v31: minimal bottom bar + settle blocks */
+nav#tabs{box-shadow:none;border-top:1px solid var(--line)}
+nav#tabs button{min-height:58px;padding:6px 2px 7px;font-size:11.5px;font-weight:500;gap:3px;color:var(--mute)}
+nav#tabs button.on{font-weight:700;color:var(--acc)}
+nav#tabs button.on::before{display:none}
+nav#tabs .ic{width:54px;height:30px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:0;line-height:0;transition:background .15s}
+nav#tabs .ico{width:22px;height:22px}
+nav#tabs button.on .ic{background:var(--soft);background:color-mix(in srgb,var(--acc) 15%,transparent)}
+.stat .pbal{border:0;border-radius:0;margin-top:6px}
+.stat .pb{padding-inline:2px}
+
+/* v32: bigger bottom bar */
+nav#tabs button{min-height:66px;padding:7px 2px 8px;font-size:13.5px;gap:3px}
+nav#tabs .ic{width:62px;height:34px;border-radius:17px}
+nav#tabs .ico{width:26px;height:26px}
+main{padding-bottom:96px}
+#toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+@media (max-width:359px){nav#tabs button{font-size:12.5px}nav#tabs .ic{width:52px}}
+
+/* v33: tour icons match the bottom bar */
+#tour .ic{width:68px;height:68px;margin:0 auto 4px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0;color:var(--acc);background:var(--soft);background:color-mix(in srgb,var(--acc) 15%,transparent)}
+#tour .ic svg{width:34px;height:34px}
+
+/* v34: card section */
+#cardSec summary{font-weight:700}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}.crow:last-child{border:0}
+.crow .nm{flex:1;min-width:0;overflow:hidden}
+.crow input{flex:0 0 58%;width:58%;text-align:right;letter-spacing:.5px}
+#tour .box{height:460px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+#tour .box>.ic{flex:none}#tour .box>h3{flex:none}#tour .box>#tourP{flex:1 1 auto;min-height:0;overflow:auto;width:100%}
+#tour .box>#tourSlogan{flex:none}#tour .box>.dots,#tour .box>.row,#tour .box>div:last-child{flex:none}
+@media(max-width:360px){#tour .box{height:480px}}
+.crow{flex-wrap:wrap;row-gap:6px}.crow .nm{flex:1 0 100%;overflow:visible}
+.crow .cv{flex:1 0 100%;min-width:0;display:flex;align-items:center;gap:8px}
+.crow .cv bdi{flex:1 1 auto;text-align:right;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.crow .cv button,.crow .ca button{padding:6px 12px;min-height:36px;font-size:13px}
+.crow .ca{flex:1 0 100%;display:flex;gap:6px;align-items:center}.crow .ca input{flex:1 1 auto;width:auto;min-width:0}
+.cgrid{display:grid;gap:8px}
+.ccard{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.ccard{flex-wrap:wrap;row-gap:6px}.ccard .nm{flex:1 1 auto;min-width:0}.ccard .no{order:3;flex:1 0 100%;direction:ltr;font-weight:800;letter-spacing:1.2px;font-size:16px;color:var(--acc);text-align:center;white-space:nowrap;padding:4px 0 2px;border-top:1px dashed var(--line)}
+.ccard button{flex:none}
+#wcSlot .empty{margin-bottom:8px}
+#esec #amr{flex-wrap:wrap;align-items:stretch}
+#esec #amr #tot1{flex:1 0 100%}
+#esec #amr #tot1 .f{font-size:15px;font-weight:700}
+#esec #amr #total{height:58px;font-size:26px;font-weight:800;text-align:center;border:2px solid var(--acc);border-radius:12px;letter-spacing:.5px}
+#esec #amr .vw .chk{flex:1 1 100%;height:auto;min-height:32px;font-size:13px;color:var(--mute);margin:4px 0 0;padding:0}
+#esec #amr .vw .chk b{font-weight:600}
+#esec #amr .vw .note{display:none}
+.pick{font-weight:400;color:var(--mute);font-size:12.5px}
+#esec .seg{border:1.5px solid var(--acc);background:var(--soft)}
+#esec .seg button:not(.on){color:var(--acc);font-weight:600}
+#esec .seg button.on::before{content:"✓ "}
+#modeHint{margin:6px 0 10px;font-size:12.5px;color:var(--mute);line-height:1.7}
+.fdf{display:flex;gap:8px;margin-top:10px}.fdf select{flex:1 1 50%;min-width:0}.fdf input{flex:1 1 50%;min-width:0;text-align:right}
+.fdrow .cv b{flex:1;text-align:right}
+#wcSlot .cardblock{margin:0}
+.crow .ca{flex:1 1 100%;min-width:0;box-sizing:border-box}.crow .ca input{flex:1 1 0;width:auto;min-width:0}.crow .ca button{flex:none}
+.cardblock .crow .cv{flex-wrap:wrap}.cardblock .crow .cv bdi{min-width:0;font-size:14px;letter-spacing:0;flex:1 1 auto}.cardblock .crow .cv button{padding:6px 9px}
+#tab-fund h3.sub{font-size:14px;margin:16px 0 6px;color:var(--mute)}
+.fdf{display:flex;gap:8px;margin-top:6px}.fdf select,.fdf input{flex:1 1 50%;min-width:0}
+#fdDate{display:flex;gap:8px;align-items:flex-start;margin-top:4px}
+#fdDate select{height:36px;min-height:36px;border-radius:9px;flex:none;background-position:left 5px center;padding-left:2px;padding-right:6px}
+.fdrow .cv .dtx{font-size:12px;color:var(--mute);white-space:nowrap}
+.ccard .nm{flex:1 1 auto}
+#tab-fund details>summary{font-weight:700}
+.askq{font-weight:700;margin:12px 0 8px}
+#tab-fund .fdr1{display:flex;flex-wrap:nowrap;gap:8px;align-items:flex-end;margin-top:6px}
+#tab-fund .fdr1 .fdpc{flex:1 1 0;min-width:0}
+#tab-fund .fdr1 .fdpc select{width:100%}
+#tab-fund .fdr1 #fdDate{margin-top:0;flex:none;gap:4px}
+@media(max-width:360px){#tab-fund .fdr1{flex-wrap:wrap}#tab-fund .fdr1 .fdpc{flex-basis:100%}}
+#tab-fund .fdr2{display:flex;gap:8px;align-items:center;margin-top:10px}
+#tab-fund .fdr2 input{flex:1 1 0;min-width:0;text-align:right}
+#tab-fund .fdr2 button{flex:none}
+</style>
+</head>
+<body>
+<div id="toast" hidden></div>
+<div id="tour" hidden role="dialog" aria-modal="true" aria-label="راهنمای برنامه"><div class="box"><div class="ic" id="tourIc"></div><h3 id="tourT"></h3><p id="tourP"></p><p id="tourSlogan" hidden style="font-weight:800;color:var(--acc);font-size:16px;margin:-4px 0 14px"></p><div class="dots" id="tourDots"></div><div class="row" style="justify-content:center"><button id="tourPrev">قبلی</button><button class="p" id="tourNext">بعدی</button></div><div style="margin-top:8px"><button class="lnk" id="tourSkip" style="background:none;border:0;color:var(--mute);text-decoration:underline;font-size:13px">رد کردن</button></div></div></div>
+<div id="imgv" hidden><div class="box"><img id="imgvI" alt="عکس فاکتور"><button class="p" id="imgvX">بستن</button></div></div>
+<div id="dlg" hidden><div class="box"><div id="dlgMsg"></div><div class="row" style="margin-top:14px;justify-content:center"><button class="p" id="dlgYes">بله</button><button id="dlgNo">خیر</button></div></div></div>
+
+<div id="home" hidden>
+<div class="hero"><button class="gear" id="gearHome" aria-label="تنظیمات" title="تنظیمات"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.08 4.14l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.26.62.86 1.03 1.56 1.03H21a2 2 0 1 1 0 4h-.09c-.7 0-1.3.41-1.56 1.03Z"/></svg><span>تنظیمات</span></button><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">دُنگ‌یار | Dongyar</h1><img class="lg" id="heroLogo" alt="دُنگ‌یار | Dongyar" src="data:image/webp;base64,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"></div>
+<main>
+<button class="p" id="newEv" style="width:100%;padding:14px;font-size:17px;margin-bottom:14px">+ رویداد جدید</button>
+<div id="evlist"></div>
+<section id="hRestore" hidden>
+<h2>قبلاً پشتیبان گرفتی؟</h2>
+<div class="empty">اگه فایل پشتیبان داری، از اینجا بازیابیش کن. بعد از ساخت اولین رویداد، این گزینه توی «تنظیمات» (چرخ‌دنده‌ی بالا) هم هست.</div>
+<input type="file" id="hFile" accept=".json,application/json" style="margin-top:8px">
+<div class="err bkm" id="hMsg"></div>
+</section>
+<p class="copy">© نوید شاهی · Dongyar</p>
+</main>
+</div>
+
+<div id="wiz" hidden>
+<header class="top2"><div class="hd"><div class="mini"><img class="lg" alt="" src="data:image/webp;base64,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"><span>دُنگ‌یار | Dongyar</span></div><div class="row" style="justify-content:space-between"><h1>رویداد جدید</h1><button id="wizBack">انصراف</button></div><div class="bar" id="wizStep"></div></div></header>
+<main>
+<section id="wiz1">
+<label class="f" for="wname" style="margin-top:0">نام رویداد</label>
+<input id="wname" placeholder="نام رویداد را مشخص کن">
+<div class="err" id="wer1"></div>
+<button class="p" id="wnext">بعدی</button>
+</section>
+<section id="wiz2" hidden>
+<h2>افراد گروه <span class="cnt" id="pcount"></span></h2>
+<div class="addp"><div class="nf"><input id="wpn" placeholder="نام" autocomplete="off"><input id="wpf" placeholder="نام خانوادگی (اختیاری)" autocomplete="off"></div><div class="addrow"><div class="seg2" role="group" aria-label="نوع فرد" data-for="wptype"><button type="button" data-t="a" class="on">بزرگسال</button><button type="button" data-t="k">کودک زیر ۱۲ سال</button></div><select id="wptype" class="sr" aria-label="نوع"><option value="a">بزرگسال</option><option value="k">کودک (زیر ۱۲ سال)</option></select><button class="p" id="wpadd">+ افزودن</button></div></div>
+<div class="chips" id="wpeople"></div>
+<div class="err" id="wer2"></div>
+<div class="empty" style="margin-bottom:10px">حداقل دو نفر لازمه. بعداً هم می‌تونی از تب «گروه» افراد رو تغییر بدی.</div>
+<button class="p" id="wnext2">بعدی</button>
+</section>
+<section id="wiz3" hidden>
+<h2>بین افراد حساب مشترک وجود داره؟</h2>
+<div class="empty" style="margin-bottom:14px">مثلاً زن و شوهر، یه خانواده، یا مهمان یه نفر که حسابش با یه نفر دیگه تسویه می‌شه.</div>
+<div class="row" style="flex-wrap:wrap"><button class="p" id="wsYes">بله</button><button class="p" id="wsNo">نه، شروع کن</button><button id="wback3">برگشت</button></div>
+</section>
+<section id="wiz4" hidden>
+<h2>حساب‌های مشترک</h2>
+<div id="wSharedSlot"></div>
+<div class="row" style="margin-top:14px;flex-wrap:wrap"><button class="p" id="wstart2">تمام، شروع کن</button><button id="wback4">برگشت</button></div>
+</section>
+</main>
+</div>
+
+<div id="app" hidden>
+<header id="top"><div class="hd"><div class="mini"><img class="lg" alt="" src="data:image/webp;base64,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"><span>دُنگ‌یار | Dongyar</span><button class="gear" id="gearApp" aria-label="تنظیمات" title="تنظیمات"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.08 4.14l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.26.62.86 1.03 1.56 1.03H21a2 2 0 1 1 0 4h-.09c-.7 0-1.3.41-1.56 1.03Z"/></svg><span>تنظیمات</span></button></div><h1 id="h1">دُنگ‌یار</h1><div class="bar" id="bar"></div></div></header>
+<main>
+<div id="tab-group" class="tab">
+<section>
+<label class="f" for="trip" style="margin-top:0">نام رویداد</label>
+<input id="trip" placeholder="نام رویداد را مشخص کن">
+</section>
+
+<section>
+<h2>افراد گروه</h2>
+<div class="addp"><div class="nf"><input id="pn" placeholder="نام" autocomplete="off"><input id="pf" placeholder="نام خانوادگی (اختیاری)" autocomplete="off"></div><div class="addrow"><div class="seg2" role="group" aria-label="نوع فرد" data-for="ptype"><button type="button" data-t="a" class="on">بزرگسال</button><button type="button" data-t="k">کودک زیر ۱۲ سال</button></div><select id="ptype" class="sr" aria-label="نوع"><option value="a">بزرگسال</option><option value="k">کودک (زیر ۱۲ سال)</option></select><button class="p" id="addP">+ افزودن</button></div></div>
+<div class="chips" id="people"></div>
+<div id="renBox"></div>
+
+<div class="err" id="perr"></div>
+</section>
+
+<section id="sharedSec"><div id="sharedHome"><details id="sharedbox"><summary>حساب مشترک (همسر، فرزند یا مهمان)</summary>
+<div class="empty" style="margin-top:6px">وقتی چند نفر (مثلاً زن و شوهر یا یه خانواده) با هم حساب می‌کنن، اینجا مشخصشون کن. توی تسویه‌ی نهایی فقط اسم نفر اصلی میاد.</div>
+<div id="sgList"></div>
+<button id="sgNew" style="margin-top:12px">+ حساب مشترک جدید</button>
+</details></div></section>
+
+
+
+
+</div>
+
+<div id="tab-fund" class="tab" hidden>
+<section><details id="fundbox"><summary>تنخواه (اختیاری)</summary>
+<div id="fundAsk">
+<div class="empty" style="margin-top:6px">اگه قراره همه مبلغی به یه کارت مشترک (مادرخرج) بریزن و خرج‌ها از اون پرداخت بشه، تنخواه رو فعال کن. هر کس هر مبلغی بخواد می‌تونه واریز کنه.</div>
+<div class="askq">برای این رویداد تنخواه فعال بشه؟</div>
+<button class="p" id="fundEnable">بله، فعال کن</button>
+</div>
+<div id="fundBody" hidden>
+<h3 class="sub">کارت تنخواه</h3>
+<div class="cardblock" id="fundCard"></div>
+<h3 class="sub">ثبت واریزی</h3>
+<div class="fdr1"><label class="dc fdpc"><span>واریزکننده</span><select id="fdP" aria-label="چه کسی واریز کرده"></select></label>
+<div id="fdDate" role="group" aria-label="تاریخ واریزی"><label class="dc"><span>روز</span><select id="fdd"></select></label><label class="dc"><span>ماه</span><select id="fdm"></select></label><label class="dc"><span>سال</span><select id="fdy"></select></label></div></div>
+<div class="fdr2"><input id="fdA" inputmode="numeric" placeholder="مبلغ" autocomplete="off" aria-label="مبلغ واریزی"><button class="p" id="fdAdd">ثبت واریزی</button><button id="fdCancel" hidden>انصراف</button></div>
+<div class="err" id="fdErr" role="status"></div>
+<div class="prev" id="fdSum"></div>
+<h3 class="sub">واریزی‌ها</h3>
+<div id="fdList"></div>
+<div class="err" id="fundErr" role="status"></div>
+<button class="x" id="fundDisable" style="margin-top:12px">غیرفعال‌کردن تنخواه</button>
+</div>
+</details></section>
+<section><details id="cardsbox"><summary>شماره کارت‌ها (اختیاری)</summary>
+<div class="empty" style="margin-top:6px">شماره‌ی کارت هر کسی که ممکنه بستانکار بشه رو اضافه کن تا پایین تب «تسویه» با یه کلیک کپی بشه. برای حساب مشترک، فقط کارت سرگروه کافیه.</div>
+<div class="cardblock" id="ccBlock"><div id="ccList"></div><div class="err cerr" role="status"></div></div>
+<button id="ccNew" style="margin-top:10px">+ افزودن شماره کارت</button>
+<div id="ccForm" hidden>
+<div class="fdf"><select id="ccP" aria-label="نام"></select><input id="ccN" inputmode="numeric" dir="ltr" placeholder="۱۶ رقم" autocomplete="off" aria-label="شماره کارت"></div>
+<div class="row" style="margin-top:8px;flex-wrap:wrap"><button class="p" id="ccAdd">ثبت</button><button id="ccCancel">انصراف</button></div>
+<div class="err" id="ccErr" role="status"></div>
+</div>
+</details></section>
+</div>
+
+<div id="tab-exp" class="tab" hidden>
+<div id="listsec">
+<div class="newbar"><button class="p" id="newE">+ خرج جدید</button></div>
+<section>
+<h2>خرج‌های ثبت‌شده</h2>
+<div id="list"></div>
+</section>
+</div>
+
+<section id="esec" hidden>
+<h2>ثبت خرج جدید</h2>
+<div class="prev" id="ebn" hidden>در حال ویرایش یه خرج ثبت‌شده. بعد از اصلاح، «ذخیره تغییرات» رو بزن.</div>
+<div class="r2 tdr"><div class="c1"><label class="f" for="title">عنوان</label><input id="title" placeholder="مثلاً کافه، بنزین، رستوران" autocomplete="off"></div>
+<div class="c2"><div class="row dtr" role="group" aria-label="تاریخ"><label class="dc"><span>روز</span><select id="dd"></select></label><label class="dc"><span>ماه</span><select id="dm"></select></label><label class="dc"><span>سال</span><select id="dy"></select></label></div></div></div>
+<div class="r2 pyr"><div class="c1"><label class="f" for="payer">چه کسی پرداخت کرده؟</label><select id="payer"></select></div>
+<label class="chk mp"><input type="checkbox" id="multi"> چند نفر پرداخت کرده‌اند</label></div>
+<div id="payers" hidden></div>
+<label class="f">نحوه تقسیم <span class="pick">(یکی رو انتخاب کن)</span></label>
+<div class="seg" role="tablist" aria-label="نحوه تقسیم"><button id="m1" class="on" role="tab">مساوی بین افراد</button><button id="m2" role="tab">بر اساس فاکتور</button></div>
+<div class="note" id="modeHint"></div>
+<div class="r2 amr" id="amr"><div id="tot1" class="c1"><label class="f" for="total">مبلغ کل به <span class="u">ریال</span> <span class="pick">(قبل از ارزش افزوده)</span></label><input id="total" inputmode="numeric" placeholder="ریال" data-ph="{U}"></div>
+<div class="vw"><label class="chk"><input type="checkbox" id="vat" checked><span><b>ارزش افزوده</b> <span id="vatr"></span></span></label><div class="note">اگه این خرج ارزش افزوده نداره، تیک رو بردار.</div></div></div>
+<label class="f" id="plabel"></label>
+<div id="parts"></div>
+<div id="tot2" hidden>
+<div id="shbox"><div id="shl"></div>
+<div class="acts"><button id="shadd">+ سفارش مشترک</button><button id="tipadd">+ انعام</button></div>
+<div class="note" id="shnote">سفارش مشترک (کیک، نوشیدنی...) بین افراد انتخاب‌شده و انعام بین همه‌ی حاضرها مساوی تقسیم می‌شه.</div>
+<div id="shdraft" class="its" hidden><input id="shn" placeholder="شرح (مثلاً پیتزای خانواده)" aria-label="شرح سفارش مشترک"><input id="sha" class="iamt" inputmode="numeric" placeholder="مبلغ (ریال)" data-ph="مبلغ ({U})" aria-label="مبلغ سفارش مشترک">
+<label class="f">چه کسانی سهیم‌اند؟</label><div id="shwho"></div><div class="itf"><button id="shall">همه</button><button class="p" id="shok">ثبت</button><button id="shcancel">انصراف</button></div><div class="err" id="sherr"></div></div>
+<div id="tipbox" hidden><label class="f" for="tip">انعام (ارزش افزوده نداره)</label><div class="row"><input id="tip" inputmode="numeric" placeholder="ریال" data-ph="{U}"><button class="x" id="tiprm" type="button">حذف انعام</button></div></div></div>
+</div>
+<div class="r2 tipr" id="tipr" hidden></div>
+
+<div class="prev" id="prev" hidden></div>
+<label class="f" for="cat">دسته‌بندی (اختیاری)</label><select id="cat"><option value="">بدون دسته</option></select>
+<div class="rcrow"><span class="f2" id="rclab">عکس فاکتور (اختیاری)</span><div class="rc" role="group" aria-labelledby="rclab"><button type="button" class="x" id="rcDel" hidden aria-label="حذف عکس فاکتور">حذف</button><img id="rcTh" alt="پیش‌نمایش فاکتور" hidden><button type="button" id="rcBtn">📷 افزودن عکس</button></div></div>
+<input type="file" id="rcFile" accept="image/*" hidden>
+<div class="err" id="eerr"></div>
+<div class="row"><button class="p" id="addE">ثبت خرج</button><button id="cancelE" hidden>انصراف</button></div>
+</section>
+</div>
+
+<div id="tab-res" class="tab" hidden>
+<section>
+<h2>تسویه حساب</h2>
+<div id="result"></div>
+</section>
+<section id="exSec" hidden>
+<h2>دریافت فایل گزارش</h2>
+<p class="sd">گزارش حساب رو کپی کن، یا به‌صورت تصویر، PDF و اکسل ذخیره یا مستقیم توی گروه بفرست.</p>
+<div class="row" id="exView" style="flex-wrap:wrap"><button class="p" id="exOpen">انتخاب قالب گزارش</button></div>
+<div class="sg" id="exBar" hidden>
+<label class="f" for="exType" style="margin-top:0">قالب</label>
+<select id="exType"><option value="" disabled selected>انتخاب نوع قالب</option><option value="txt">متن (برای کپی)</option><option value="png">تصویر (PNG)</option><option value="pdf">PDF</option><option value="csv">اکسل (CSV)</option></select>
+<div id="exWhatRow"><label class="f" for="exWhat">محتوای گزارش</label>
+<select id="exWhat"><option value="" disabled selected>انتخاب نوع محتوای گزارش</option><option value="sum">خلاصه حساب و پرداخت‌های لازم</option><option value="exp">لیست خرج‌ها</option><option value="both">هر دو</option></select></div>
+<textarea id="exTxt" readonly rows="10" style="margin-top:10px" hidden></textarea>
+<div class="dt" id="exHint" style="margin:8px 0"></div>
+<div class="itf exb"><button class="p" id="exGo">دریافت فایل</button><button id="exShare">ارسال مستقیم</button><button id="exCancel">انصراف</button></div>
+<div class="err" id="exMsg" role="status"></div>
+</div>
+</section>
+</div>
+
+</main>
+<nav id="tabs"><div class="in">
+<button data-tab="home"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>رویدادها</button>
+<button data-tab="group" class="on"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.4 0 4 1.7 4 4.2"/></svg></span>گروه</button>
+<button data-tab="exp"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></span>خرج‌ها</button>
+<button data-tab="fund"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h11v3"/><path d="M4 7v10a2 2 0 0 0 2 2h13a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H6a2 2 0 0 1-2-2"/><circle cx="16" cy="13.5" r="1" fill="currentColor"/></svg></span>صندوق</button>
+<button data-tab="res"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span>تسویه</button>
+</div></nav>
+</div>
+
+<div id="settings" hidden>
+<header class="top2"><div class="hd"><div class="row" style="justify-content:space-between"><h1>تنظیمات</h1><button id="setBack">بازگشت</button></div></div></header>
+<main>
+<section id="stTheme"><h2>ظاهر برنامه</h2><p class="sd">«خودکار» از تنظیم خود گوشی پیروی می‌کند.</p>
+<div class="seg" id="themeSeg" role="group" aria-label="ظاهر برنامه"><button data-th="auto">خودکار</button><button data-th="light">☀️ روشن</button><button data-th="dark">🌙 تیره</button></div></section>
+<section id="stDef"><h2>واحد پول و ارزش افزوده</h2><p class="sd">برای همه‌ی رویدادها یکسانه. با تغییر واحد، مبلغ‌های ثبت‌شده هم تبدیل می‌شن (هر تومان ۱۰ ریاله). تغییر ارزش افزوده روی خرج‌های ثبت‌شده تأثیری نداره.</p>
+<label class="f" for="defUnit">واحد پول</label>
+<select id="defUnit"><option value="ریال">ریال</option><option value="تومان">تومان</option></select>
+<label class="f" for="defVat">ارزش افزوده (٪)</label>
+<div class="row"><input id="defVat" inputmode="numeric" placeholder="مثلاً ۱۰" style="max-width:110px"><b>٪</b></div>
+<div class="err" id="defErr" role="status"></div></section>
+<section id="stName">
+<h2>نمایش اسم افراد</h2>
+<p class="sd">انتخاب کن اسم افراد توی همه‌ی لیست‌ها، گزارش‌ها و متن‌های کپی چطور نوشته بشه. لیست‌ها هم بر همین اساس به‌ترتیب الفبا مرتب می‌شن. فقط برای افرادی که نام خانوادگی دارن فرق می‌کنه.</p>
+<label class="f" for="nameord">ترتیب نمایش</label>
+<select id="nameord"><option value="nf">نام، نام خانوادگی (مثلاً نوید شاهی)</option><option value="fn">نام خانوادگی، نام (مثلاً شاهی نوید)</option></select>
+</section>
+
+<section>
+<h2>پشتیبان‌گیری و بازیابی</h2>
+<p class="sd">اطلاعات فقط توی همین مرورگر ذخیره می‌شه. برای امنیت، هر از چند گاهی یه فایل پشتیبان بگیر.</p>
+<div class="row" style="margin-top:10px;flex-wrap:wrap"><button class="p" id="bkSave">ذخیره‌ی فایل پشتیبان</button></div>
+<label class="f" for="bkFile">بازیابی از فایل پشتیبان</label>
+<input type="file" id="bkFile" accept=".json,application/json">
+<div class="err bkm" id="bkMsg"></div>
+<div class="row" id="bkOkRow" hidden><button class="p" id="bkOk">تأیید و جایگزینی اطلاعات فعلی</button><button id="bkNo">انصراف</button></div>
+</section>
+
+<section id="stHelp"><h2>راهنما و درباره</h2><p class="sd">راهنمای کوتاه شروع را هر وقت خواستی دوباره ببین.</p><button id="tourShow">نمایش راهنما</button><p class="copy" style="margin-top:18px">© نوید شاهی · Dongyar</p></section>
+</main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=v=>{v=String(v||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[,٬،\s]/g,'');return v&&!isNaN(v)?Math.round(+v):0};
+const fmt=n=>Math.round(n).toLocaleString('fa-IR');
+// avatar: colored circle with the first letter, color derived from the name (stable)
+const AVH=[8,150,215,300,28,190,262,340,100,235];
+const avHue=n=>{const i=(typeof S==='object'&&S&&S.people)?S.people.indexOf(n):-1;if(i>=0)return AVH[i%AVH.length];let h=0;for(const c of String(n))h=(h*31+c.codePointAt(0))>>>0;return AVH[h%AVH.length]};
+const avCol=n=>'hsl('+avHue(n)+' 52% 36%)';
+const famOf=n=>(typeof S==='object'&&S&&S.fam&&S.fam[n])||'';
+const nameOnly=p=>{const f=famOf(p);return f&&p.endsWith(' '+f)?p.slice(0,-f.length-1):p};
+const nameOrder=()=>(typeof DB==='object'&&DB&&DB.prefs&&DB.prefs.nameOrder)==='fn'?'fn':'nf';
+// display name: «نام، نام خانوادگی» (default) or «نام خانوادگی، نام»; the stored identifier stays «نام نام‌خانوادگی»
+const FUND='__fund__';
+const dn=p=>{if(p===FUND)return 'تنخواه';const f=famOf(p);return f&&nameOrder()==='fn'?f+' '+nameOnly(p):p};
+const noteTxt=t=>String(t||'').replace(/ (ریال|تومان)/g,' '+U()).replace(/(نیم‌بها: )(.*)$/,(m,a,b)=>a+b.split('، ').map(dn).join('، '));
+const av=n=>{if(n===FUND)return '<span class="av" aria-hidden="true" style="background:var(--acc)">ت</span>';const f=famOf(n),x=Array.from(nameOnly(n).trim())[0]||'؟',y=f?Array.from(f)[0]:'',t=y?(nameOrder()==='fn'?y+'.'+x:x+'.'+y):x;return `<span class="av${y?' two':''}" aria-hidden="true" style="background:${avCol(n)}">${esc(t)}</span>`};
+// people are shown alphabetically everywhere (display only; the stored order never changes)
+const coll=new Intl.Collator('fa');
+const PO=()=>S.people.map((p,i)=>i).sort((x,y)=>coll.compare(dn(S.people[x]),dn(S.people[y]))||x-y);
+const PL=()=>PO().map(i=>S.people[i]);
+// Jalali (Persian) dates: stored as [y,m,d]
+const JM=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+function g2j(gy,gm,gd){const gdm=[0,31,59,90,120,151,181,212,243,273,304,334];let jy=gy<=1600?0:979;gy-=gy<=1600?621:1600;const g2=gm>2?gy+1:gy;
+ let days=365*gy+Math.floor((g2+3)/4)-Math.floor((g2+99)/100)+Math.floor((g2+399)/400)-80+gd+gdm[gm-1];
+ jy+=33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;
+ if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}
+ return[jy,days<186?1+Math.floor(days/31):7+Math.floor((days-186)/30),1+(days<186?days%31:(days-186)%30)]}
+const jOf=t=>{const d=new Date(t);return g2j(d.getFullYear(),d.getMonth()+1,d.getDate())};
+const dateOf=e=>Array.isArray(e.date)&&e.date.length===3?e.date:(e.id>1e12?jOf(e.id):null);
+const dStr=dt=>dt?fmt(dt[2])+' '+JM[dt[1]-1]+' '+String(dt[0]).replace(/\d/g,x=>'۰۱۲۳۴۵۶۷۸۹'[x]):'';
+const U=()=>(typeof S==='object'&&S&&S.settings&&S.settings.unit==='تومان')?'تومان':'ریال';
+const M=n=>fmt(n)+' '+U();
+let renDr=null;
+let S=blankData(),mode=1,resetArm=false,editId=null,lastTr=[];
+let payList=[],payAmt={},sgDr=null;
+let DB={v:2,activeId:null,events:[]};
+function blankData(vat,unit){return {trip:'',people:[],kids:{},fam:{},card:{},fund:{on:false,deposits:[]},link:{},settings:{vat:vat==null?10:vat,unit:unit==='تومان'?'تومان':'ریال',unitOk:true},expenses:[],payments:[]}}
+function fixData(d){d.people=d.people||[];d.expenses=d.expenses||[];d.link=d.link||{};d.settings=d.settings||{vat:10};if(typeof d.settings.vat!=='number')d.settings.vat=10;d.trip=d.trip||'';d.payments=d.payments||[];d.kids=d.kids||{};d.fam=d.fam||{};return d}
+try{
+ const r2=localStorage.getItem('dong2');
+ if(r2){const o=JSON.parse(r2);if(o&&Array.isArray(o.events))DB=o}
+ else{const r1=localStorage.getItem('dong1');if(r1){const d=fixData(JSON.parse(r1));if(d.people.length||d.expenses.length||d.trip)DB.events.push({id:Date.now(),data:d})}}
+}catch(e){}
+DB.activeId=null;DB.prefs=DB.prefs||{};if(!DB.deviceId)DB.deviceId='d'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);DB.events.forEach(ev=>fixData(ev.data));
+const save=()=>{try{localStorage.setItem('dong2',JSON.stringify(DB));return true}catch(e){return false}};
+
+// جمع تقسیم‌ها همیشه دقیقاً برابر کل می‌مونه: اول بخش صحیح، بعد باقی‌مانده به بزرگ‌ترین اعشارها
+function distribute(raw,total){const ks=Object.keys(raw),o={};let used=0;
+ ks.forEach(k=>{o[k]=Math.floor(raw[k]+1e-9);used+=o[k]});
+ let left=total-used;
+ ks.sort((a,b)=>(raw[b]-Math.floor(raw[b]+1e-9))-(raw[a]-Math.floor(raw[a]+1e-9))).forEach(k=>{if(left>0){o[k]++;left--}});
+ return o}
+function splitEqual(total,names,wt){wt=wt||{};const W=names.reduce((a,n)=>a+(wt[n]||1),0),raw={};names.forEach(n=>raw[n]=total*(wt[n]||1)/W);return distribute(raw,total)}
+
+// فاکتور: سفارش شخصی + مورد مشترک + ارزش افزوده (روی شخصی و مشترک) + انعام (بدون ارزش افزوده)
+function invCalc(){
+ const items={},present=[],wt={},half=[],lines={};let bad=null;
+ document.querySelectorAll('#parts .pr').forEach(r=>{const p=S.people[+r.dataset.i],c=r.querySelector('input[type=checkbox]').checked,a=num(r.querySelector('input.amt').value),hf=r.querySelector('.hf');
+  if(c){present.push(p);wt[p]=hf&&hf.value=='0.5'?0.5:1;if(wt[p]==0.5)half.push(p)}
+  if(c&&a>0)items[p]=a;if(!c&&a>0)bad=p;const ln=[...r.querySelectorAll('.it')].map(i=>({n:i.querySelector('.inm').value.trim(),a:num(i.querySelector('.iamt').value)})).filter(x=>x.a>0);if(c&&ln.length)lines[p]=ln});
+ if(bad)return{err:'«'+dn(bad)+'» مبلغ داره ولی تیک حضور نداره.'};
+ const n=present.length;if(!n)return{err:'حداقل یه نفر باید حاضر باشه.'};
+ const tip=num($('#tip').value),sum=Object.values(items).reduce((a,b)=>a+b,0);
+ let sh=0;const so=[];for(const o of shO){const w=o.who.filter(p=>present.includes(p));if(!w.length)return{err:'سفارش مشترک «'+(o.n||M(o.a))+'» هیچ فرد حاضری نداره.'};sh+=o.a;so.push({n:o.n,a:o.a,who:w})}
+ if(sum+sh+tip<=0)return{err:'مبلغی وارد نشده.'};
+ const W=present.reduce((a,p)=>a+wt[p],0),v=$('#vat').checked?S.settings.vat/100:0,base=sum+sh,vatAmt=Math.round(base*v),total=base+vatAmt+tip,raw={};
+ present.forEach(p=>raw[p]=(items[p]||0)*(1+v)+tip*wt[p]/W);
+ so.forEach(o=>{const Wo=o.who.reduce((x,p)=>x+wt[p],0);o.who.forEach(p=>raw[p]+=o.a*(1+v)*wt[p]/Wo)});
+ return{total,parts:distribute(raw,total),note:'مشترک '+M(sh)+'، ارزش افزوده '+M(vatAmt)+'، انعام '+M(tip)+(half.length?'، نیم‌بها: '+half.join('، '):''),src:{mode:2,items,lines,present,half,shared:sh,sharedOrders:so,tip,vat:$('#vat').checked}};
+}
+function prev(){prev0();paySum()}
+function prev0(){const el=$('#prev');
+ if(mode==1){const b=$('#multi').checked?0:num($('#total').value),v=$('#vat').checked?S.settings.vat/100:0;
+  if(b>0&&v>0){const va=Math.round(b*v);el.hidden=false;el.textContent='مبلغ نهایی با ارزش افزوده: '+M(b+va)+' (ارزش افزوده '+M(va)+')'}else el.hidden=true;return}
+ const r=invCalc();el.hidden=false;el.textContent=r.err?'':'جمع کل فاکتور: '+M(r.total)+' ('+noteTxt(r.note)+')'}
+
+function renderPeople(){$('#pcount').textContent=S.people.length?fmt(S.people.length)+' نفر':'';if(renDr&&!S.people.includes(renDr.p)){renDr=null;$('#renBox').innerHTML=''}
+ const ls=Object.keys(S.link),hs=Object.values(S.link);
+ $('#people').innerHTML=S.people.length?PL().map(p=>`<span class="chip">${av(p)}<span class="pn">${esc(dn(p))}</span><button class="tg" data-kid="${esc(p)}" title="تغییر نوع">${S.kids[p]?'کودک':'بزرگسال'}</button><button class="tg" data-ren="${esc(p)}">ویرایش</button><button class="x" data-del="${esc(p)}" aria-label="حذف ${esc(p)}">حذف</button></span>`).join(''):'<span class="empty">هنوز کسی اضافه نشده.</span>';
+ const opts=PL().map(p=>`<option value="${esc(p)}">${esc(dn(p))}</option>`).join('');
+ const pp=$('#payer').value;$('#payer').innerHTML='<option value="">انتخاب کن...</option>'+(FD().on?'<option value="'+FUND+'">تنخواه</option>':'')+opts;if(S.people.includes(pp)||(pp===FUND&&FD().on))$('#payer').value=pp;renderPayers();
+ renderShared();renderFund();
+ renderParts();
+}
+function renderParts(){
+ $('#parts').innerHTML=S.people.length?PO().map(i=>{const p=S.people[i];return `<div class="pr" data-i="${i}"><span class="n nm">${av(p)}${esc(dn(p))}</span>${S.kids[p]?'<span class="hl"><select class="hf" aria-label="نوع بها"><option value="1">تمام‌بها</option><option value="0.5">نیم‌بها</option></select></span>':'<span class="hl"></span>'}<input type="checkbox" checked aria-label="${mode==1?'سهیم':'حاضر'}">`+
+ (mode==2?`<input class="amt" hidden><span class="sm"></span><button class="ib" data-tog aria-label="مبالغ ${esc(p)}">افزودن سفارش</button><div class="eq"></div><div class="its" hidden><div class="itl"></div><div class="itf"><button data-addit>+ سفارش دیگه</button><button class="p" data-okit>ثبت</button><button data-cancelit>انصراف</button></div></div>`:'')+`</div>`}).join(''):'<div class="empty">اول افراد گروه رو اضافه کن.</div>';
+ $('#plabel').textContent=mode==1?'چه کسانی سهیم‌اند؟ (فقط کسایی که استفاده کردن یا خوردن). برای کودک، تمام‌بها یا نیم‌بها رو انتخاب کن.':'تیک = حاضر. سفارش‌های هر نفر رو با «افزودن سفارش» بنویس؛ اگه چیزی نخورده، خالی بذار.';
+ $('#vatr').textContent='('+fmt(S.settings.vat)+'٪)';prev();
+}
+const accOf=p=>S.link[p]||p;
+const FD=()=>S.fund||(S.fund={on:false,deposits:[]});
+function calc(){
+ const paid={},owed={},pay={},dep={};S.people.forEach(p=>{paid[p]=0;owed[p]=0;pay[p]=0;dep[p]=0});FD().deposits.forEach(x=>{dep[x.p]=(dep[x.p]||0)+x.amt});
+ S.expenses.forEach(e=>{const py=payersOf(e);for(const k in py)paid[k]=(paid[k]||0)+py[k];for(const k in e.parts)owed[k]=(owed[k]||0)+e.parts[k]});
+ S.payments.forEach(x=>{pay[x.from]=(pay[x.from]||0)+x.amount;pay[x.to]=(pay[x.to]||0)-x.amount});
+ const bal={},acc={};
+ PL().forEach(p=>{bal[p]=paid[p]-owed[p]+pay[p]+dep[p];const h=accOf(p);acc[h]=(acc[h]||0)+bal[p]});
+ const fundIn=FD().deposits.reduce((a,x)=>a+x.amt,0),fundOut=paid[FUND]||0;
+ if(FD().on||fundIn||fundOut)acc[FUND]=fundOut-fundIn+(pay[FUND]||0);
+ const label=h=>dn(h);
+ const cr=[],db=[];for(const h in acc){if(acc[h]>0)cr.push({p:h,v:acc[h]});else if(acc[h]<0)db.push({p:h,v:-acc[h]})}
+ cr.sort((a,b)=>b.v-a.v);db.sort((a,b)=>b.v-a.v);
+ const tr=[];let i=0,j=0;
+ while(i<db.length&&j<cr.length){const m=Math.min(db[i].v,cr[j].v);tr.push({from:label(db[i].p),to:label(cr[j].p),fromH:db[i].p,toH:cr[j].p,v:m});db[i].v-=m;cr[j].v-=m;if(!db[i].v)i++;if(!cr[j].v)j++}
+ return {paid,owed,pay,dep,fundIn,fundOut,bal,acc,label,tr};
+}
+const stc=b=>b>0?'<span class="stc cre">بستانکار '+M(b)+'</span>':b<0?'<span class="stc deb">بدهکار '+M(-b)+'</span>':'<span class="stc">تسویه</span>';
+const st=b=>b>0?'<td class="cre">بستانکار '+M(b)+'</td>':b<0?'<td class="deb">بدهکار '+M(-b)+'</td>':'<td>تسویه</td>';
+const exKey=e=>{const d=dateOf(e)||[0,0,0];return d[0]*10000+d[1]*100+d[2]};
+function sortEx(){S.expenses.sort((a,b)=>exKey(a)-exKey(b)||a.id-b.id)}
+function renderList(){sortEx();
+ $('#list').innerHTML=S.expenses.length?S.expenses.map(e=>`<div class="ex"><div class="t"><span>${catIc(e)}${esc(e.title)}</span><span>${M(e.total)}</span></div>
+ <div class="d">${payLine(e)}</div>${dateOf(e)?`<div class="dt">📅 ${dStr(dateOf(e))}</div>`:''}
+ <div class="d" style="margin-top:6px">سهم هر نفر:</div>
+ <div class="sh">${Object.keys(e.parts).map(k=>`<div><span class="nm">${av(k)}${esc(dn(k))}</span><span>${M(e.parts[k])}</span></div>`).join('')}</div>${e.note?`<div class="d">${esc(noteTxt(e.note))}</div>`:''}
+ <div class="row"><button data-edit="${e.id}">ویرایش</button>${e.img?`<button data-rc="${e.id}">🧾 فاکتور</button>`:''}<button class="x" data-ex="${e.id}">حذف</button></div></div>`).join(''):(S.people.length?'<div class="empty">هنوز خرجی ثبت نشده. با «+ خرج جدید» شروع کن.</div>':'<div class="empty">اول افراد گروه رو توی تب «گروه» اضافه کن.</div><div style="margin-top:8px"><button data-goto="group">رفتن به گروه</button></div>');
+}
+function cardFmt(d){return String(d).replace(/(.{4})(?=.)/g,'$1 ')}
+$('#result').addEventListener('click',async e=>{const b=e.target.closest('[data-cp]');if(!b)return;toast(await copyTxt(b.dataset.cp)?'شماره کارت کپی شد ✓':'کپی نشد')});
+let cardEd=null,fseg=1,ccForm=false,fdEd=null;
+function cardRowHTML(p){const c=S.card&&S.card[p],ed=cardEd===p||!c;
+ const mid=ed?`<span class="ca"><input inputmode="numeric" dir="ltr" placeholder="۱۶ رقم" value="${esc(c?cardFmt(c):'')}" aria-label="شماره کارت ${esc(dn(p))}" autocomplete="off"><button class="p" data-cs="${esc(p)}">ثبت</button>${c?`<button data-cx="${esc(p)}">انصراف</button>`:''}</span>`
+  :`<span class="cv"><bdi dir="ltr">${cardFmt(c)}</bdi><button data-cp="${c}">کپی</button><button data-ce="${esc(p)}">ویرایش</button><button class="x" data-cd="${esc(p)}">حذف</button></span>`;
+ return `<div class="crow" data-p="${esc(p)}"><span class="nm">${av(p)}${esc(dn(p))}</span>${mid}</div>`}
+function cardsView(){const ps=(FD().on?[FUND,...PL()]:PL()).filter(p=>(S.card||{})[p]);if(!ps.length)return '';
+ return `<details class="stat" data-k="cards"><summary>شماره کارت‌ها برای واریز</summary><div class="cgrid">`+ps.map(p=>`<div class="ccard"><span class="nm">${av(p)}${esc(dn(p))}</span><button data-cp="${S.card[p]}">کپی</button><span class="no">${cardFmt(S.card[p])}</span></div>`).join('')+`</div><div class="empty" style="margin-top:8px">برای افزودن یا ویرایش: تب «صندوق» ← شماره کارت‌ها.</div></details>`}
+function cardSave(row,blk){const p=row.dataset.p,i=row.querySelector('input'),d=latin(i.value).replace(/\D/g,''),er=blk.querySelector('.cerr');
+ if(d.length!==16){er.textContent='شماره‌ی کارت «'+dn(p)+'» باید ۱۶ رقم باشه.';i.focus();return}
+ S.card=S.card||{};S.card[p]=d;cardEd=null;save();renderFund();renderResult();toast('شماره‌ی کارت ذخیره شد ✓')}
+function cardHandlers(root){
+ root.addEventListener('input',e=>{const i=e.target,blk=i.closest&&i.closest('.cardblock');if(!blk||i.tagName!=='INPUT')return;i.value=cardFmt(latin(i.value).replace(/\D/g,'').slice(0,16));blk.querySelector('.cerr').textContent=''});
+ root.addEventListener('keydown',e=>{const blk=e.target.closest&&e.target.closest('.cardblock');if(blk&&e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();cardSave(e.target.closest('.crow'),blk)}});
+ root.addEventListener('click',e=>{const b=e.target.closest('button'),blk=b&&b.closest('.cardblock');if(!blk)return;const d=b.dataset;blk.querySelector('.cerr').textContent='';
+  const foc=p=>{const i=document.querySelector('.cardblock .crow[data-p="'+CSS.escape(p)+'"] input');if(i)i.focus()};
+  if(d.cs)cardSave(b.closest('.crow'),blk);
+  else if(d.ce){cardEd=d.ce;renderFund();foc(d.ce)}
+  else if(d.cx){cardEd=null;renderFund()}
+  else if(d.cp){copyTxt(d.cp).then(ok=>toast(ok?'شماره کارت کپی شد ✓':'کپی نشد'))}
+  else if(d.cd){const p=d.cd;undoable('شماره‌ی کارت حذف شد',()=>{delete S.card[p];save();renderFund();renderResult()})}})}
+cardHandlers($('#tab-fund'));
+function fdDateInit(dt){const t=jOf(Date.now()),v=dt||t;
+ $('#fdy').innerHTML=[t[0]-2,t[0]-1,t[0],t[0]+1].map(y=>`<option value="${y}">${fmt(y).replace(/٬/g,'')}</option>`).join('');
+ $('#fdm').innerHTML=JM.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
+ $('#fdd').innerHTML=Array.from({length:31},(_,i)=>`<option value="${i+1}">${fmt(i+1)}</option>`).join('');
+ if(![...$('#fdy').options].some(o=>+o.value===v[0]))$('#fdy').insertAdjacentHTML('afterbegin',`<option value="${v[0]}">${fmt(v[0]).replace(/٬/g,'')}</option>`);
+ $('#fdy').value=v[0];$('#fdm').value=v[1];$('#fdd').value=v[2];['#fdd','#fdm','#fdy'].forEach(q=>{try{fitSel($(q))}catch(e){}})}
+function fdDateVal(){const m=+$('#fdm').value,mx=m<=6?31:m<=11?30:29;if(+$('#fdd').value>mx)$('#fdd').value=mx;return[+$('#fdy').value,m,+$('#fdd').value]}
+function renderFund(){const f=FD();
+ $('#fundAsk').hidden=f.on;$('#fundBody').hidden=!f.on;
+ if(f.on){
+  $('#fundCard').innerHTML=cardRowHTML(FUND)+'<div class="err cerr" role="status"></div>';
+  const sel=$('#fdP').value;$('#fdP').innerHTML='<option value="">انتخاب...</option>'+PL().map(p=>`<option value="${esc(p)}">${esc(dn(p))}</option>`).join('');if(S.people.includes(sel))$('#fdP').value=sel;
+  $('#fdA').placeholder='مبلغ ('+U()+')';
+  $('#fdList').innerHTML=f.deposits.length?f.deposits.map(x=>`<div class="crow fdrow" data-id="${x.id}"><span class="nm">${av(x.p)}${esc(dn(x.p))}</span><span class="cv"><b>${M(x.amt)}</b><span class="dtx">${dateOf(x)?dStr(dateOf(x)):''}</span><button data-fe="${x.id}">ویرایش</button><button class="x" data-fd="${x.id}">حذف</button></span></div>`).join(''):'<div class="empty">هنوز واریزی ثبت نشده.</div>';
+  const c=calc(),left=c.fundIn-c.fundOut;
+  $('#fdSum').textContent='جمع واریزی: '+M(c.fundIn)+' — خرج‌شده: '+M(c.fundOut)+' — '+(left<0?'کسری: ':'موجودی: ')+M(Math.abs(left))}
+ const ps=PL().filter(p=>S.card&&S.card[p]),free=PL().filter(p=>!(S.card&&S.card[p]));
+ $('#ccList').innerHTML=ps.length?ps.map(cardRowHTML).join(''):'<div class="empty">هنوز شماره کارتی ثبت نشده.</div>';
+ $('#ccNew').hidden=ccForm||!free.length;$('#ccForm').hidden=!ccForm;
+ const cs=$('#ccP').value;$('#ccP').innerHTML='<option value="">انتخاب نام</option>'+free.map(p=>`<option value="${esc(p)}">${esc(dn(p))}</option>`).join('');if(free.includes(cs))$('#ccP').value=cs}
+function fdFit(){['#fdd','#fdm','#fdy'].forEach(q=>{try{fitSel($(q))}catch(e){}})}
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fdFit);
+function fdReset(){fdEd=null;$('#fdA').value='';$('#fdP').value='';fdDateInit();$('#fdAdd').textContent='ثبت واریزی';$('#fdCancel').hidden=true}
+$('#ccNew').onclick=()=>{ccForm=true;renderFund();$('#ccP').focus()};
+$('#ccCancel').onclick=()=>{ccForm=false;$('#ccN').value='';$('#ccErr').textContent='';renderFund()};
+$('#ccN').oninput=e=>{e.target.value=cardFmt(latin(e.target.value).replace(/\D/g,'').slice(0,16));$('#ccErr').textContent=''};
+$('#ccN').onkeydown=e=>{if(e.key==='Enter')$('#ccAdd').click()};
+$('#ccAdd').onclick=()=>{const er=$('#ccErr');er.textContent='';const pn=$('#ccP').value,d=latin($('#ccN').value).replace(/\D/g,'');
+ if(!pn){er.textContent='اول نام رو انتخاب کن.';return}
+ if(d.length!==16){er.textContent='شماره‌ی کارت باید ۱۶ رقم باشه.';return}
+ S.card=S.card||{};S.card[pn]=d;ccForm=false;$('#ccN').value='';save();renderFund();renderResult();toast('شماره‌ی کارت ذخیره شد ✓')};
+$('#fundEnable').onclick=()=>{FD().on=true;save();fdReset();renderPeople();all();toast('تنخواه فعال شد ✓')};
+$('#fundDisable').onclick=()=>{const f=FD(),er=$('#fundErr');er.textContent='';
+ if(f.deposits.length||S.expenses.some(x=>payersOf(x)[FUND]!==undefined)||S.payments.some(x=>x.from===FUND||x.to===FUND)){er.textContent='تنخواه واریزی یا خرج ثبت‌شده داره. اول اون‌ها رو حذف کن.';return}
+ f.on=false;save();fdReset();renderPeople();all()};
+$('#fdAdd').onclick=()=>{const er=$('#fdErr');er.textContent='';const pn=$('#fdP').value,a=num($('#fdA').value);
+ if(!pn){er.textContent='واریزکننده رو انتخاب کن.';return}
+ if(!(a>0)){er.textContent='مبلغ واریزی رو وارد کن.';return}
+ const dt=fdDateVal(),f=FD();if(fdEd){const x=f.deposits.find(d=>d.id===fdEd);if(x){x.p=pn;x.amt=a;x.date=dt}}else f.deposits.push({id:Date.now(),p:pn,amt:a,date:dt});
+ f.deposits.sort((x,y)=>exKey(x)-exKey(y)||x.id-y.id);
+ const was=fdEd;fdReset();save();renderFund();renderResult();toast(was?'واریزی ویرایش شد ✓':'واریزی ثبت شد ✓')};
+$('#fdCancel').onclick=()=>{fdReset();$('#fdErr').textContent=''};
+$('#fdA').onkeydown=e=>{if(e.key==='Enter')$('#fdAdd').click()};
+$('#fdList').onclick=e=>{const b=e.target.closest('button');if(!b)return;const f=FD();
+ if(b.dataset.fe){const x=f.deposits.find(d=>d.id===+b.dataset.fe);if(!x)return;fdEd=x.id;$('#fdP').value=x.p;$('#fdA').value=fmt(x.amt);fdDateInit(dateOf(x));$('#fdAdd').textContent='ذخیره';$('#fdCancel').hidden=false;$('#fdA').focus()}
+ else if(b.dataset.fd){const id=+b.dataset.fd;undoable('واریزی حذف شد',()=>{f.deposits=f.deposits.filter(d=>d.id!==id);if(fdEd===id)fdReset();save();renderFund();renderResult()})}};
+function fundBlock(c){if(!FD().on&&!c.fundIn&&!c.fundOut)return '';
+ const left=c.fundIn-c.fundOut;
+ return `<details class="stat" open data-k="fund"><summary>تنخواه</summary><div class="srow"><span>جمع واریزی‌ها</span><b>${M(c.fundIn)}</b></div><div class="srow"><span>خرج‌شده از تنخواه</span><b>${M(c.fundOut)}</b></div><div class="srow"><span>${left<0?'کسری تنخواه':'موجودی تنخواه'}</span><b class="${left<0?'deb':'cre'}">${M(Math.abs(left))}</b></div>`+
+  PL().filter(p=>c.dep[p]>0).map(p=>`<div class="srow"><span class="nm">${av(p)}${esc(dn(p))}</span><b>${M(c.dep[p])}</b></div>`).join('')+`</details>`}
+function renderResult(){
+ exSync();
+ if(!S.expenses.length){$('#result').innerHTML='<div class="empty">بعد از ثبت اولین خرج، نتیجه اینجا نشون داده می‌شه.</div>';lastTr=[];return}
+ const c=calc(),linked=Object.keys(S.link).length>0,hp=S.payments.length>0;lastTr=c.tr;
+ const rows=PL().map(p=>{const n=c.pay[p]||0;return `<div class="pb"><div class="pb1"><span class="nm">${av(p)}${esc(dn(p))}</span>${stc(c.bal[p])}</div><div class="pb2"><span>پرداخته <b>${M(c.paid[p])}</b></span>${c.dep[p]>0?`<span>به تنخواه داده <b>${M(c.dep[p])}</b></span>`:''}<span>سهمش <b>${M(c.owed[p])}</b></span>${hp?`<span>${n>0?'داده '+M(n):n<0?'گرفته '+M(-n):'تسویه‌شده —'}</span>`:''}</div></div>`}).join('');
+ const tot=S.expenses.reduce((a,e)=>a+e.total,0),act=PL().filter(p=>(c.owed[p]||0)>0).sort((a,b)=>c.owed[b]-c.owed[a]),mx=act.length?c.owed[act[0]]:1;
+  let h0=`<details class="stat" open><summary>آمار: سهم هر نفر از کل خرج‌ها</summary><div class="srow"><span>جمع کل خرج‌ها</span><b>${M(tot)}</b></div><div class="srow"><span>میانگین هر نفر</span><b>${M(tot/Math.max(1,S.people.length))}</b></div>`+act.map(p=>`<div class="sbar"><div class="l"><span class="nm">${av(p)}${esc(dn(p))}</span><span>${M(c.owed[p])} <b>${fmt(c.owed[p]/tot*100)}٪</b></span></div><div class="tk"><i style="width:${Math.max(2,c.owed[p]/mx*100)}%;background:${avCol(p)}"></i></div></div>`).join('')+`</details>`;
+  const cs={};S.expenses.forEach(e=>{const k=e.cat||'-';cs[k]=(cs[k]||0)+e.total});
+  {const ks=Object.keys(cs).sort((a,b)=>cs[b]-cs[a]),cm=cs[ks[0]]||1;
+   h0+=`<details class="stat" open id="catStat"><summary>پول‌مون کجا رفت؟</summary>`+ks.map(k=>{const c=CATS.find(x=>x[0]===k);return `<div class="sbar"><div class="l"><span>${c?c[1]+' '+c[2]:'بدون دسته'}</span><span>${M(cs[k])} <b>${fmt(cs[k]/tot*100)}٪</b></span></div><div class="tk"><i style="width:${Math.max(2,cs[k]/cm*100)}%"></i></div></div>`}).join('')+(Object.keys(cs).every(k=>k==='-')?'<div class="empty" style="margin-top:8px">هنوز برای هیچ خرجی دسته‌بندی انتخاب نشده. موقع ثبت خرج، «دسته‌بندی» رو انتخاب کن تا اینجا تفکیک بشه.</div>':'')+`</details>`}
+  const was={};document.querySelectorAll('#result details[data-k]').forEach(d=>was[d.dataset.k]=d.open);
+  let h=h0+`<details class="stat bal" open data-k="bal"><summary>وضعیت حساب هر نفر</summary><div class="pbal">${rows}</div></details>`;
+ if(linked)h+=`<details class="stat bal" open data-k="fin"><summary>حساب نهایی (با احتساب حساب مشترک)</summary><div class="pbal">${Object.keys(c.acc).map(k=>`<div class="pb"><div class="pb1"><span class="nm">${av(k)}${esc(c.label(k))}</span>${stc(c.acc[k])}</div></div>`).join('')}</div></details>`;
+ h+=fundBlock(c);
+ h+=`<h2 style="margin-top:18px">پرداخت‌های لازم</h2>`+(c.tr.length?c.tr.map((t,i)=>`<div class="tr"><span class="nm">${av(t.fromH)}${esc(t.from)} ← ${av(t.toH)}${esc(t.to)}</span><span class="row"><b>${M(t.v)}</b><button data-pay="${i}">پرداخت شد</button><button data-part="${i}">پرداخت بخشی</button></span><div class="row pbox" data-pbox="${i}" hidden><input class="amt" data-pamt="${i}" inputmode="numeric" placeholder="مبلغ پرداخت‌شده (${U()})" aria-label="مبلغ پرداخت بخشی"><button class="p" data-pok="${i}">ثبت</button></div></div>`).join(''):'<div class="empty">همه تسویه‌ان.</div>');
+ h+=cardsView();
+ if(hp)h+=`<h2 style="margin-top:18px">تسویه‌های ثبت‌شده</h2>`+S.payments.map(x=>`<div class="tr"><span>${esc(c.label(x.from))} ← ${esc(c.label(x.to))}</span><span class="row"><b>${M(x.amount)}</b><button class="x" data-unpay="${x.id}" aria-label="حذف تسویه">حذف</button></span></div>`).join('');
+  $('#result').innerHTML=h;document.querySelectorAll('#result details[data-k]').forEach(d=>{if(d.dataset.k in was)d.open=was[d.dataset.k]});
+}
+const TABS=['group','fund','exp','res'];
+const isDig=ch=>/[0-9٠-٩۰-۹]/.test(ch);
+const latin=s=>String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+function fmtInput(el){
+ const v=el.value,p=el.selectionStart==null?v.length:el.selectionStart,after=[...v.slice(p)].filter(isDig).length;
+ const d=latin(v).replace(/\D/g,''),f=d?fmt(parseInt(d,10)):'';
+ if(f===v)return;
+ el.value=f;let q=f.length,c=0;while(q>0&&c<after){q--;if(isDig(f[q]))c++}
+ try{el.setSelectionRange(q,q)}catch(e){}
+}
+document.addEventListener('input',e=>{if(e.target.matches&&e.target.matches('#total,#tip,#fdA,input.amt,input.iamt'))fmtInput(e.target)});
+function fmtAll(){document.querySelectorAll('#total,#tip,#fdA,input.amt,input.iamt').forEach(i=>{if(i.value){const d=latin(i.value).replace(/\D/g,'');i.value=d?fmt(parseInt(d,10)):''}})}
+function showTab(t){TABS.forEach(k=>{$('#tab-'+k).hidden=k!==t});if(t==='fund')fdFit();document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));window.scrollTo(0,0)}
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.tab==='home')goHome();else showTab(b.dataset.tab)};
+function fitSel(s){const c=document.createElement('canvas').getContext('2d'),st=getComputedStyle(s);c.font=st.fontWeight+' '+st.fontSize+' '+st.fontFamily;let w=0;[...s.options].forEach(o=>{w=Math.max(w,c.measureText(o.text).width)});s.style.width=Math.ceil(w+28)+'px'}
+function fitDate(){['#dd','#dm','#dy'].forEach(q=>fitSel($(q)))}
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{try{fitDate()}catch(e){}});
+function dateInit(dt){const t=jOf(Date.now()),v=dt||t;
+ $('#dy').innerHTML=[t[0]-2,t[0]-1,t[0],t[0]+1].map(y=>`<option value="${y}">${fmt(y).replace(/٬/g,'')}</option>`).join('');
+ $('#dm').innerHTML=JM.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
+ $('#dd').innerHTML=Array.from({length:31},(_,i)=>`<option value="${i+1}">${fmt(i+1)}</option>`).join('');
+ if(![...$('#dy').options].some(o=>+o.value===v[0]))$('#dy').insertAdjacentHTML('afterbegin',`<option value="${v[0]}">${fmt(v[0]).replace(/٬/g,'')}</option>`);
+ $('#dy').value=v[0];$('#dm').value=v[1];$('#dd').value=v[2];fitDate()}
+function dateClamp(){const m=+$('#dm').value,mx=m<=6?31:m<=11?30:29;if(+$('#dd').value>mx)$('#dd').value=mx}
+$('#dm').onchange=dateClamp;$('#dd').onchange=dateClamp;
+const dateVal=()=>{dateClamp();return[+$('#dy').value,+$('#dm').value,+$('#dd').value]};
+function showForm(on){$('#esec').hidden=!on;$('#listsec').hidden=on;if(on)window.scrollTo(0,0)}
+$('#newE').onclick=()=>{cancelEdit();showForm(true)};dateInit();
+function renderBar(){const tot=S.expenses.reduce((a,e)=>a+e.total,0);$('#bar').textContent=S.people.length?fmt(S.people.length)+' نفر · '+fmt(S.expenses.length)+' خرج · جمع '+M(tot):'هنوز کسی اضافه نشده';}
+function applyUnits(){const u=U();document.querySelectorAll('.u').forEach(e=>e.textContent=u);document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=e.dataset.ph.replace('{U}',u))}
+function setHH(){const t=document.getElementById('top');document.documentElement.style.setProperty('--hh',(t&&t.offsetHeight?t.offsetHeight:80)+'px')}
+addEventListener('resize',setHH);addEventListener('load',setHH);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(setHH);
+const all=()=>{setHH();applyUnits();renderList();renderResult();renderBar()};
+
+const sp1=x=>String(x||'').trim().replace(/\s+/g,' ');
+
+// compact adult/child switch: the hidden <select> stays the single source of truth
+function fitPh(){const sm=innerWidth<345;['pf','wpf'].forEach(id=>{const e=document.getElementById(id);if(e)e.placeholder=sm?'نام خانوادگی':'نام خانوادگی (اختیاری)'})}
+fitPh();addEventListener('resize',fitPh);
+function syncSeg(sel){const g=document.querySelector('.seg2[data-for="'+sel.id+'"]');if(g)g.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===sel.value))}
+document.querySelectorAll('.seg2').forEach(g=>{const sel=document.getElementById(g.dataset.for);sel.addEventListener('change',()=>syncSeg(sel));g.onclick=e=>{const b=e.target.closest('button');if(!b)return;sel.value=b.dataset.t;syncSeg(sel)}});
+function personAdd(n,f,kid,er){n=sp1(n);f=sp1(f);er.textContent='';if(!n)return false;const full=f?n+' '+f:n;
+ if(S.people.includes(full)){er.textContent=f?'«'+full+'» قبلاً اضافه شده.':'یه «'+full+'» قبلاً اضافه شده. اگه یه نفر دیگه‌ست، نام خانوادگی‌ش رو هم بنویس.';return false}
+ S.fam=S.fam||{};S.people.push(full);if(f)S.fam[full]=f;if(kid)S.kids[full]=true;return true}
+$('#addP').onclick=()=>{if(personAdd($('#pn').value,$('#pf').value,$('#ptype').value=='k',$('#perr'))){$('#ptype').value='a';syncSeg($('#ptype'));$('#pn').value='';$('#pf').value='';save();renderPeople();all();$('#pn').focus()}};
+$('#pf').onkeydown=e=>{if(e.key==='Enter')$('#addP').click()};
+$('#pn').onkeydown=e=>{if(e.key==='Enter')$('#addP').click()};
+function renderRen(){$('#renBox').innerHTML=renDr?`<div class="sg" id="renBar"><b>ویرایش اسم «${esc(dn(renDr.p))}»</b><div class="nf" style="margin-top:8px"><input id="rn" value="${esc(renDr.n)}" placeholder="نام" aria-label="نام"><input id="rf" value="${esc(renDr.f)}" placeholder="نام خانوادگی" aria-label="نام خانوادگی"></div><div class="itf"><button class="p" data-renok>ثبت</button><button data-rencancel>انصراف</button></div><div class="err" id="renerr"></div></div>`:'';lockUI();if(renDr)$('#rn').focus()}
+// rename a person everywhere: people list, kids/family maps, shared accounts, expenses (payers, shares, invoice data), settlements, form drafts
+function renamePerson(old,full,fam){const map=x=>x===old?full:x,rk=o=>{const r={};for(const k in o)r[map(k)]=o[k];return r};
+ S.people=S.people.map(map);S.kids=rk(S.kids);S.fam=rk(S.fam||{});S.card=rk(S.card||{});if(fam)S.fam[full]=fam;else delete S.fam[full];
+ S.link=rk(S.link);for(const k in S.link)S.link[k]=map(S.link[k]);
+ S.payments.forEach(x=>{x.from=map(x.from);x.to=map(x.to)});FD().deposits.forEach(x=>{x.p=map(x.p)});
+ S.expenses.forEach(e=>{e.payer=map(e.payer);if(e.payers)e.payers=rk(e.payers);e.parts=rk(e.parts);
+  const q=e.src;if(q){['items','lines'].forEach(k=>{if(q[k])q[k]=rk(q[k])});['present','half','names'].forEach(k=>{if(Array.isArray(q[k]))q[k]=q[k].map(map)});if(Array.isArray(q.sharedOrders))q.sharedOrders.forEach(o=>o.who=o.who.map(map))}
+  if(e.note)e.note=e.note.replace(/(نیم‌بها: )(.*)$/,(m,a,b)=>a+b.split('، ').map(map).join('، '))});
+ payList=payList.map(map);payAmt=rk(payAmt);shO.forEach(o=>o.who=o.who.map(map))}
+$('#renBox').onclick=e=>{const d=e.target.dataset;
+ if(d.rencancel!==undefined){renDr=null;renderRen()}
+ else if(d.renok!==undefined){const n=sp1($('#rn').value),f=sp1($('#rf').value),er=$('#renerr');if(!n){er.textContent='نام رو بنویس.';return}
+  const full=f?n+' '+f:n,old=renDr.p;
+  if(full!==old&&S.people.includes(full)){er.textContent='«'+full+'» قبلاً توی گروه هست.';return}
+  if(!$('#esec').hidden){er.textContent='فرم خرج بازه. اول اون رو ثبت یا لغو کن، بعد اسم رو عوض کن.';return}
+  if(full!==old||f!==(S.fam&&S.fam[old]||''))renamePerson(old,full,f);
+  renDr=null;save();renderPeople();renderRen();all();toast('اسم تغییر کرد ✓')}};
+$('#people').onclick=e=>{if(e.target.dataset.ren!==undefined){const p=e.target.dataset.ren,f=(S.fam&&S.fam[p])||'';renDr={p,f,c:(S.card||{})[p]||'',n:f&&p.endsWith(' '+f)?p.slice(0,-f.length-1):p};renderRen();return}
+ const k=e.target.dataset.kid;if(k){if(S.kids[k])delete S.kids[k];else S.kids[k]=true;save();renderPeople();return}const p=e.target.dataset.del;if(!p)return;
+ if(S.expenses.some(x=>p in payersOf(x)||p in x.parts)){$('#perr').textContent='«'+dn(p)+'» تو خرج‌های ثبت‌شده هست. اول اون خرج‌ها رو حذف کن.';return}
+ if(FD().deposits.some(x=>x.p===p)){$('#perr').textContent='«'+dn(p)+'» واریزی توی تنخواه داره. اول اون واریزی رو حذف کن.';return}
+ if(S.payments.some(x=>x.from===p||x.to===p)){$('#perr').textContent='«'+dn(p)+'» تو یه تسویه‌ی ثبت‌شده هست. اول اون رو حذف کن.';return}
+ if(p in S.link||Object.values(S.link).includes(p)){$('#perr').textContent='«'+dn(p)+'» تو یه حساب مشترک هست. اول اون رو حذف کن.';return}
+ ask('«'+dn(p)+'» از گروه حذف بشه؟',()=>undoable('«'+dn(p)+'» حذف شد',()=>{S.people=S.people.filter(x=>x!==p);delete S.kids[p];if(S.fam)delete S.fam[p];if(S.card)delete S.card[p];$('#perr').textContent='';save();renderPeople();all()}))};
+function sgGroups(){const g={};Object.keys(S.link).forEach(m=>{(g[S.link[m]]=g[S.link[m]]||[]).push(m)});return g}
+function sgFreeFor(h){const g=sgGroups();return PL().filter(p=>p!==h&&!g[p]&&(!(p in S.link)||S.link[p]===h))}
+function renderShared(){
+ const g=sgGroups();let html='';
+ const pl=PL(),ix=x=>pl.indexOf(x);Object.keys(g).sort((x,y)=>ix(x)-ix(y)).forEach(hd=>{g[hd].sort((x,y)=>ix(x)-ix(y));html+=`<div class="sgr"><span><b>${esc(dn(hd))}</b> <small>${g[hd].map(x=>esc(dn(x))).join('، ')}</small></span><span class="row"><button data-sged="${esc(hd)}">ویرایش</button><button class="x" data-sgdel="${esc(hd)}">حذف</button></span></div>`});
+ if(sgDr){const d=sgDr,heads=PL().filter(p=>!(p in S.link)&&!g[p]),free=d.head?sgFreeFor(d.head):[];
+  html+=`<div class="sg" id="sgDraft"><b>${d.edit?'ویرایش حساب «'+esc(dn(d.head))+'»':'حساب مشترک جدید'}</b>`+
+   (d.edit?'':`<div class="mut">نفر اصلی (حساب به نام چه کسی باشه؟)</div><select data-sghead><option value="">انتخاب کن...</option>${heads.map(p=>`<option value="${esc(p)}"${p===d.head?' selected':''}>${esc(dn(p))}</option>`).join('')}</select>`)+
+   (d.head?`<div class="mut">زیرمجموعه‌ها:</div><div id="sgms" class="chips">${free.length?free.map(p=>`<label class="chk"><input type="checkbox" data-sgm="${esc(p)}"${d.ms.includes(p)?' checked':''}> ${esc(dn(p))}</label>`).join(''):'<div class="empty">فرد آزادی نمونده.</div>'}</div>`:'')+
+   `<div class="itf"><button class="p" data-sgok>ثبت</button><button data-sgcancel>انصراف</button></div><div class="err" id="sgerr"></div></div>`}
+ if(!html)html='<div class="empty" style="margin-top:10px">هنوز حساب مشترکی تعریف نشده.</div>';
+ $('#sgList').innerHTML=html;
+ $('#sgNew').textContent=Object.keys(g).length?'+ حساب مشترک دیگه':'+ حساب مشترک جدید';
+ $('#sgNew').disabled=S.people.filter(p=>!(p in S.link)&&!g[p]).length<2;
+ lockUI()}
+$('#sgList').onchange=e=>{const t=e.target,d=t.dataset;if(!sgDr)return;
+ if(d.sghead!==undefined){sgDr.head=t.value;sgDr.ms=[];renderShared()}
+ else if(d.sgm!==undefined)sgDr.ms=[...document.querySelectorAll('#sgms input:checked')].map(c=>c.dataset.sgm)};
+$('#sgList').onclick=e=>{const d=e.target.dataset;
+ if(d.sged!==undefined){sgDr={edit:true,head:d.sged,ms:[...(sgGroups()[d.sged]||[])]};renderShared()}
+ else if(d.sgdel!==undefined){const hd=d.sgdel;ask('حساب «'+dn(hd)+'» حذف بشه؟ افراد داخلش به‌صورت جدا حساب می‌شن و پاک نمی‌شن.',()=>undoable('حساب مشترک حذف شد',()=>{Object.keys(S.link).forEach(m=>{if(S.link[m]===hd)delete S.link[m]});save();renderPeople();all()}))}
+ else if(d.sgcancel!==undefined){sgDr=null;renderShared()}
+ else if(d.sgok!==undefined){const x=sgDr;if(!x.head){$('#sgerr').textContent='نفر اصلی رو انتخاب کن.';return}
+  if(!x.ms.length){$('#sgerr').textContent='حداقل یه زیرمجموعه انتخاب کن.';return}
+  Object.keys(S.link).forEach(m=>{if(S.link[m]===x.head)delete S.link[m]});x.ms.forEach(m=>S.link[m]=x.head);sgDr=null;save();renderPeople();all();toast('حساب مشترک ثبت شد ✓')}};
+$('#sgNew').onclick=()=>{sgDr={edit:false,head:'',ms:[]};renderShared()};
+function convertAmounts(f,st){
+ st=st||S;const sc=x=>Math.round(x*f);
+ st.expenses.forEach(e=>{
+  const nt=sc(e.total),rawP={},py=payersOf(e),rawY={};
+  for(const k in e.parts)rawP[k]=e.parts[k]*f;
+  for(const k in py)rawY[k]=py[k]*f;
+  e.total=nt;e.parts=distribute(rawP,nt);e.payers=distribute(rawY,nt);e.payer=Object.keys(e.payers)[0];
+  if(e.src){const s=e.src;['total','shared','tip'].forEach(k=>{if(typeof s[k]==='number')s[k]=sc(s[k])});if(s.items)for(const k in s.items)s.items[k]=sc(s.items[k])}
+  if(e.note)e.note=e.note.split('، ').map(g=>/^(مشترک|ارزش افزوده|انعام)/.test(g)?g.replace(/[۰-۹][۰-۹٬]*/g,m=>fmt(sc(num(m)))):g).join('، ');
+ });
+ st.payments.forEach(x=>{x.amount=sc(x.amount)});((st.fund&&st.fund.deposits)||[]).forEach(x=>{x.amt=sc(x.amt)});
+}
+function rescale(st,up,dry){
+ let ok=true;
+ const sc=x=>{if(up)return x*10;if(x%10!==0){ok=false;return x}return x/10};
+ const deep=o=>Array.isArray(o)?o.map(deep):(o&&typeof o==='object')?Object.fromEntries(Object.entries(o).map(([k,v])=>[k,(k==='mode'||k==='vat')?v:deep(v)])):typeof o==='number'?sc(o):o;
+ const out=st.expenses.map(e=>({total:sc(e.total),parts:deep(e.parts),payers:e.payers?deep(e.payers):null,src:e.src?deep(e.src):null,
+  note:e.note?e.note.split('، ').map(g=>/^(مشترک|ارزش افزوده|انعام)/.test(g)?g.replace(/[۰-۹][۰-۹٬]*/g,m=>fmt(sc(num(m)))):g).join('، '):e.note}));
+ const pay=st.payments.map(x=>sc(x.amount)),fdp=((st.fund&&st.fund.deposits)||[]).map(x=>sc(x.amt));
+ if(dry||!ok)return ok;
+ st.expenses.forEach((e,i)=>{const o=out[i];e.total=o.total;e.parts=o.parts;if(o.payers)e.payers=o.payers;if(o.src)e.src=o.src;e.note=o.note});
+ st.payments.forEach((x,i)=>{x.amount=pay[i]});((st.fund&&st.fund.deposits)||[]).forEach((x,i)=>{x.amt=fdp[i]});return true}
+$('#nameord').value=nameOrder();
+$('#nameord').onchange=()=>{if(!$('#esec').hidden){$('#nameord').value=nameOrder();toast('فرم خرج بازه. اول اون رو ثبت یا لغو کن.');return}
+ DB.prefs.nameOrder=$('#nameord').value==='fn'?'fn':'nf';save();renderPeople();renderWiz2();all()};
+
+// ---------- v21: defaults, theme, settings page ----------
+const defUnit=()=>DB.prefs.defUnit==='تومان'||DB.prefs.defUnit==='ریال'?DB.prefs.defUnit:(DB.events.length&&DB.events[DB.events.length-1].data.settings.unit==='تومان'?'تومان':'ریال');
+const defVat=()=>typeof DB.prefs.defVat==='number'?DB.prefs.defVat:(DB.events.length?DB.events[DB.events.length-1].data.settings.vat:10);
+function applyTheme(){const t=DB.prefs.theme,r=document.documentElement;if(t==='light'||t==='dark')r.dataset.theme=t;else delete r.dataset.theme;
+ const dark=t==='dark'||(t!=='light'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches),m=document.querySelector('meta[name=theme-color]');if(m)m.content=dark?'#0f1b1d':'#e9eeed';
+ document.querySelectorAll('#themeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.th===(t==='light'||t==='dark'?t:'auto')))}
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme)}catch(e){}
+$('#themeSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;DB.prefs.theme=b.dataset.th==='auto'?'auto':b.dataset.th;save();applyTheme()};
+let setOrigin='home';
+function openSettings(){if(openBar())return;setOrigin=$('#app').hidden?'home':'app';
+ $('#defUnit').value=defUnit();$('#defVat').value=fmt(defVat());$('#defErr').textContent='';applyTheme();setView('settings')}
+function closeSettings(){setView(setOrigin);if(setOrigin==='app')all();else renderHome()}
+$('#gearApp').onclick=openSettings;$('#gearHome').onclick=openSettings;$('#setBack').onclick=closeSettings;
+// one unit and one VAT rate for the whole app; amounts already saved are converted, never silently changed otherwise
+function migrateGlobals(){const gu=defUnit(),gv=defVat();DB.prefs.defUnit=gu;DB.prefs.defVat=gv;
+ DB.events.forEach(ev=>{const st=ev.data;st.settings=st.settings||{};st.settings.vat=gv;
+  if(st.settings.unit!==gu){const up=gu==='ریال',has=st.expenses.length||st.payments.length||(st.fund&&st.fund.deposits.length);
+   if(!has||rescale(st,up,true)){if(has)rescale(st,up,false);st.settings.unit=gu;st.settings.unitOk=true}}});save()}
+$('#defUnit').onchange=()=>{const nu=$('#defUnit').value==='تومان'?'تومان':'ریال',cur=defUnit(),er=$('#defErr');er.textContent='';if(nu===cur)return;
+ const revert=()=>{$('#defUnit').value=cur};
+ if(!$('#esec').hidden){er.textContent='اول فرم خرج رو ثبت یا لغو کن، بعد واحد رو عوض کن.';revert();return}
+ const up=nu==='ریال',need=DB.events.filter(ev=>ev.data.settings.unit!==nu),has=ev=>ev.data.expenses.length||ev.data.payments.length||(ev.data.fund&&ev.data.fund.deposits.length);
+ if(need.some(ev=>has(ev)&&!rescale(ev.data,up,true))){er.textContent='بعضی مبلغ‌ها بر ۱۰ بخش‌پذیر نیستن و تبدیلشون به تومان دقیق نمی‌شه، برای همین واحد ریال می‌مونه.';revert();return}
+ const go=()=>{need.forEach(ev=>{if(has(ev))rescale(ev.data,up,false);ev.data.settings.unit=nu;ev.data.settings.unitOk=true});DB.prefs.defUnit=nu;save();renderParts();toast('واحد پول: '+nu+' ✓')};
+ if(need.some(has))ask('واحد همه‌ی رویدادها به «'+nu+'» تغییر کنه؟ مبلغ‌های ثبت‌شده هم تبدیل می‌شن.',go,revert);else go()};
+$('#defVat').onchange=()=>{const raw=String($('#defVat').value).trim(),v=num(raw);if(!raw||!(v>=0&&v<=100)||!/[0-9۰-۹٠-٩]/.test(raw)){$('#defErr').textContent='یه عدد بین ۰ تا ۱۰۰ وارد کن.';return}
+ $('#defErr').textContent='';DB.prefs.defVat=v;DB.events.forEach(ev=>{ev.data.settings.vat=v});$('#defVat').value=fmt(v);save();renderParts();toast('ارزش افزوده: '+fmt(v)+'٪ ✓')};
+$('#defVat').onkeydown=e=>{if(e.key==='Enter')$('#defVat').blur()};
+
+$('#m1').onclick=()=>setMode(1);$('#m2').onclick=()=>setMode(2);
+function itemRow(n,a){return `<div class="it"><input class="inm" placeholder="شرح (اختیاری)" aria-label="شرح سفارش" value="${esc(n||'')}"><input class="iamt" inputmode="numeric" placeholder="مبلغ" aria-label="مبلغ سفارش" value="${a?fmt(a):''}"><button class="x" data-delit aria-label="حذف سفارش">حذف</button></div>`}
+let shO=[],shEdit=null;
+const presWt=()=>{const o={};document.querySelectorAll('#parts .pr').forEach(r=>{const p=S.people[+r.dataset.i];if(r.querySelector('input[type=checkbox]').checked){const hf=r.querySelector('.hf');o[p]=hf&&hf.value=='0.5'?0.5:1}});return o};
+// only one bar open at a time: while it is open, everything outside it is inert until «ثبت» or «انصراف»
+function openBar(){return document.querySelector('#parts .its:not([hidden]),#shdraft:not([hidden]),#sgDraft,#renBar,#exBar:not([hidden])')}
+// fallback for browsers without `inert`: block clicks/presses outside the open bar in the capture phase
+['click','mousedown','keydown'].forEach(ev=>document.addEventListener(ev,e=>{const bar=openBar();if(!bar)return;const t=e.target;if(!t.closest)return;
+ if(bar.contains(t)||t.closest('#dlg'))return;if(ev==='keydown'&&!(e.key==='Enter'||e.key===' '))return;
+ if(t.closest('button,input,select,textarea,summary,label,a')){e.stopPropagation();e.preventDefault()}},true));
+function lockUI(){
+ document.querySelectorAll('[data-lk]').forEach(el=>{el.inert=false;el.removeAttribute('data-lk')});
+ document.querySelectorAll('#parts .pr').forEach(r=>{const tg=r.querySelector('[data-tog]');if(tg){tg.disabled=!r.querySelector('input[type=checkbox]').checked;tg.hidden=!r.querySelector('.its').hidden}});
+ $('#shadd').hidden=!$('#shdraft').hidden;$('#sgNew').hidden=!!$('#sgDraft');
+ const bar=openBar();if(!bar)return;
+ document.querySelectorAll('button,input,select,textarea,summary').forEach(el=>{if(bar.contains(el)||el.closest('#dlg'))return;el.inert=true;el.setAttribute('data-lk','1')})}
+function rowSummary(r){const amt=r.querySelector('input.amt');if(!amt)return;
+ const c=r.querySelector('input[type=checkbox]').checked,vals=[...r.querySelectorAll('.it .iamt')].map(i=>num(i.value)).filter(v=>v>0),t=vals.reduce((x,y)=>x+y,0),tg=r.querySelector('[data-tog]');
+ amt.value=c&&t?fmt(t):'';
+ r.querySelector('.sm').innerHTML=c&&vals.length?fmt(vals.length)+' سفارش <b>'+fmt(t)+'</b>':'';
+ r.querySelector('.eq').textContent=c&&vals.length>1?vals.map(x=>fmt(x)).join('+'):'';
+ tg.textContent=vals.length?'ویرایش':'افزودن سفارش';
+ if(!c)r.querySelector('.its').hidden=true;r.classList.toggle('off',!c);lockUI()}
+function addItem(r){const l=r.querySelector('.itl');l.insertAdjacentHTML('beforeend',itemRow());const q=l.querySelectorAll('.iamt');q[q.length-1].focus()}
+$('#esec').addEventListener('click',e=>{const r=e.target.closest('#parts .pr');if(!r||mode!=2)return;const d=e.target.dataset,box=r.querySelector('.its');
+ if(d.tog!==undefined){box._snap=[...box.querySelectorAll('.it')].map(i=>({n:i.querySelector('.inm').value,a:num(i.querySelector('.iamt').value)}));box.hidden=false;if(!box.querySelector('.it'))addItem(r)}
+ else if(d.cancelit!==undefined){r.querySelector('.itl').innerHTML=(box._snap||[]).map(x=>itemRow(x.n,x.a)).join('');box.hidden=true;rowSummary(r);prev()}
+ else if(d.addit!==undefined)addItem(r);
+ else if(d.delit!==undefined){const it=e.target.closest('.it');ask('این سفارش حذف بشه؟',()=>{it.remove();if(!box.querySelector('.it'))addItem(r);rowSummary(r);prev()})}
+ else if(d.okit!==undefined){box.querySelectorAll('.it').forEach(i=>{if(!(num(i.querySelector('.iamt').value)>0))i.remove()});box.hidden=true;rowSummary(r);prev()}
+ lockUI()});
+$('#esec').addEventListener('input',e=>{if(e.target.classList.contains('iamt')){const r=e.target.closest('#parts .pr');if(r){rowSummary(r);prev()}}});
+$('#esec').addEventListener('change',e=>{const r=e.target.closest('#parts .pr');if(r&&mode==2){if(e.target.type==='checkbox')rowSummary(r);renderSh();prev()}});
+// shared orders: description + amount + who shares it; split equally (child half-price weight) among the chosen present people
+function renderSh(){const pw=presWt();$('#shl').innerHTML=shO.map((o,i)=>{const w=o.who.filter(p=>pw[p]),W=w.reduce((x,p)=>x+pw[p],0);
+ return `<div class="shi"><div><b>${esc(o.n||'سفارش مشترک')}</b> <span>${M(o.a)}</span><div class="eq2">${w.length?esc(w.map(dn).join('، '))+' · هر نفر ≈ '+M(Math.round(o.a/W)):'هیچ فرد حاضری انتخاب نشده'}</div></div><span class="row"><button data-shed="${i}">ویرایش</button><button class="x" data-shdel="${i}">حذف</button></span></div>`}).join('');lockUI()}
+function shOpen(i){shEdit=i;const pw=presWt(),o=i==null?{n:'',a:0,who:[]}:shO[i];
+ $('#shn').value=o.n;$('#sha').value=o.a?fmt(o.a):'';$('#sherr').textContent='';
+ $('#shwho').innerHTML=Object.keys(pw).map(p=>`<label class="chk"><input type="checkbox" data-shp="${esc(p)}"${o.who.includes(p)?' checked':''}> ${esc(dn(p))}</label>`).join('');
+ $('#shdraft').hidden=false;lockUI();$('#sha').focus()}
+$('#shbox').addEventListener('click',e=>{const d=e.target.dataset,id=e.target.id;
+ if(id==='shadd')shOpen(null);
+ else if(d.shed!==undefined)shOpen(+d.shed);
+ else if(d.shdel!==undefined){const i=+d.shdel;ask('این سفارش مشترک حذف بشه؟',()=>{shO.splice(i,1);renderSh();prev()})}
+ else if(id==='shall')$('#shwho').querySelectorAll('input').forEach(c=>c.checked=true);
+ else if(id==='shcancel'){$('#shdraft').hidden=true;lockUI()}
+ else if(id==='shok'){const a=num($('#sha').value),who=[...$('#shwho').querySelectorAll('input:checked')].map(c=>c.dataset.shp);
+  if(!(a>0)){$('#sherr').textContent='مبلغ رو وارد کن.';return}
+  if(!who.length){$('#sherr').textContent='حداقل یه نفر رو انتخاب کن.';return}
+  const o={n:$('#shn').value.trim(),a:Math.round(a),who};if(shEdit==null)shO.push(o);else shO[shEdit]=o;
+  $('#shdraft').hidden=true;renderSh();prev()}});
+function tipSync(){const on=!!num($('#tip').value);$('#tipbox').hidden=!on;$('#tipadd').hidden=on}
+$('#tipadd').onclick=()=>{$('#tipbox').hidden=false;$('#tipadd').hidden=true;$('#tip').focus()};
+$('#tiprm').onclick=()=>{$('#tip').value='';tipSync();prev()};
+function setMode(m){mode=m;$('#modeHint').textContent=m==1?'همه‌ی افراد انتخاب‌شده سهم برابر دارن؛ فقط مبلغ کل رو وارد کن.':'سهم هر نفر جدا از روی فاکتور وارد می‌شه (سفارش‌ها، مورد مشترک، انعام).';$('#m1').classList.toggle('on',m==1);$('#m2').classList.toggle('on',m==2);$('#tot1').hidden=m!=1;$('#tot2').hidden=m!=2;$('#tipr').hidden=m!=2;placeVat();syncUI();renderParts()}
+$('#esec').addEventListener('input',e=>{const cb=e.target.closest('#parts .pr');if(e.target.classList.contains('amt')&&cb&&num(e.target.value)>0)cb.querySelector('input[type=checkbox]').checked=true;prev()});
+$('#esec').addEventListener('change',prev);
+const CATS=[['food','🍽️','کافه / رستوران'],['stay','🏨','اقامت'],['fun','🎡','تفریح'],['fuel','⛽','سوخت (بنزین)'],['shop','🛒','خرید'],['trans','🚗','رفت و آمد'],['other','📦','سایر']];
+$('#cat').insertAdjacentHTML('beforeend',CATS.map(c=>`<option value="${c[0]}">${c[1]} ${c[2]}</option>`).join(''));
+const catIc=e=>{const c=CATS.find(x=>x[0]===e.cat);return c?'<span class="ci" aria-hidden="true">'+c[1]+'</span> ':''};
+let rcImg=null;
+function rcSet(v){rcImg=v||null;const th=$('#rcTh');th.hidden=!rcImg;if(rcImg)th.src=rcImg;else th.removeAttribute('src');$('#rcDel').hidden=!rcImg;$('#rcBtn').textContent=rcImg?'تغییر عکس':'📷 افزودن عکس'}
+function imgShrink(f){return new Promise((ok,no)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{try{const s=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.width*s));c.height=Math.max(1,Math.round(im.height*s));c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',.65))}catch(e){no(e)}};im.onerror=()=>{URL.revokeObjectURL(u);no(new Error('img'))};im.src=u})}
+$('#rcBtn').onclick=()=>$('#rcFile').click();
+$('#rcDel').onclick=()=>rcSet(null);
+$('#rcFile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;$('#eerr').textContent='';imgShrink(f).then(rcSet).catch(()=>{$('#eerr').textContent='این عکس خونده نشد؛ یه عکس دیگه امتحان کن.'})};
+function imgOpen(u){$('#imgvI').src=u;$('#imgv').hidden=false;$('#imgvX').focus()}
+function imgClose(){$('#imgv').hidden=true;$('#imgvI').removeAttribute('src')}
+$('#imgvX').onclick=imgClose;$('#imgv').onclick=e=>{if(e.target.id==='imgv')imgClose()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#imgv').hidden)imgClose()});
+$('#list').addEventListener('click',e=>{const b=e.target.closest('[data-rc]');if(!b)return;const x=S.expenses.find(q=>String(q.id)===b.dataset.rc);if(x&&x.img)imgOpen(x.img)});
+$('#addE').onclick=()=>{
+ const er=$('#eerr');er.textContent='';
+ const title=$('#title').value.trim()||'خرج بدون عنوان',payer=$('#payer').value;
+ if(!S.people.length){er.textContent='اول افراد گروه رو اضافه کن.';return}
+ if(!payer&&!$('#multi').checked){er.textContent='پرداخت‌کننده رو انتخاب کن.';return}
+ let total,parts,note='',src;
+ if(mode==1){
+  total=$('#multi').checked?0:num($('#total').value);
+  const rs=[...document.querySelectorAll('#parts .pr')].filter(r=>r.querySelector('input').checked),names=rs.map(r=>S.people[+r.dataset.i]),wt={},half=[];
+  rs.forEach(r=>{const hf=r.querySelector('.hf'),q=S.people[+r.dataset.i];if(hf&&hf.value=='0.5'){wt[q]=0.5;half.push(q)}});
+  let derived=false;
+  if(total<=0&&$('#multi').checked){total=[...document.querySelectorAll('#payers .pr.on input.amt')].reduce((a,i)=>a+num(i.value),0);derived=total>0}
+  if(total<=0){er.textContent=$('#multi').checked&&!document.querySelector('#payers .pr.on')?'تیک کسانی که پرداخت کرده‌اند را بزن و مبلغشان را بنویس.':'مبلغ کل رو وارد کن (یا مبلغ پرداختی‌ها رو بنویس).';return}
+  if(!names.length){er.textContent='حداقل یه نفر باید سهیم باشه.';return}
+  const vatOn=!derived&&$('#vat').checked,base=total,vatAmt=vatOn?Math.round(base*S.settings.vat/100):0;total=base+vatAmt;
+  parts=splitEqual(total,names,wt);src={mode:1,total:base,names,half,vat:vatOn};
+  note=[vatAmt?'ارزش افزوده '+M(vatAmt):'',half.length?'نیم‌بها: '+half.join('، '):''].filter(Boolean).join('، ');
+ }else{
+  const r=invCalc();if(r.err){er.textContent=r.err;return}
+  total=r.total;parts=r.parts;note=r.note;src=r.src;
+ }
+ let payers;
+ if($('#multi').checked){
+  payers={};const emp=[];if(!document.querySelector('#payers .pr.on')){er.textContent='تیک کسانی که پرداخت کرده‌اند را بزن و مبلغشان را بنویس.';return}
+  document.querySelectorAll('#payers .pr.on').forEach(r=>{const n=S.people[+r.dataset.i],a=num(r.querySelector('input.amt').value);if(a>0)payers[n]=a;else emp.push(n)});
+  let sp=Object.values(payers).reduce((a,b)=>a+b,0);
+  if(emp.length==1&&total>sp){payers[emp[0]]=total-sp;sp=total}
+  if(!Object.keys(payers).length){er.textContent='مبلغ پرداختی حداقل یه نفر رو وارد کن.';return}
+  if(sp!==total){er.textContent=emp.length>1?'مبلغ بیشتر از یه نفر خالیه. فقط یه نفر می‌تونه خالی بمونه تا باقی‌مانده بهش برسه.':'جمع مبالغ پرداختی ('+M(sp)+') با مبلغ کل ('+M(total)+') برابر نیست.';return}
+ }else payers={[payer]:total};
+ const ex={id:editId||Date.now(),title,date:dateVal(),payer:Object.keys(payers)[0],payers,total,parts,note,src};if($('#cat').value)ex.cat=$('#cat').value;if(rcImg)ex.img=rcImg;
+ const i=editId?S.expenses.findIndex(x=>x.id===editId):-1;
+ if(i>=0)S.expenses[i]=ex;else S.expenses.push(ex);sortEx();
+ let fb=false;if(!save()&&ex.img){delete ex.img;save();fb=true}
+ cancelEdit();all();toast(fb?'جای ذخیره‌سازی پر شد؛ خرج بدون عکس ثبت شد.':i>=0?'تغییرات خرج ذخیره شد ✓':'خرج ثبت شد ✓');
+};
+function cancelEdit(){editId=null;$('#cat').value='';rcSet(null);dateInit();['#title','#total','#tip'].forEach(s=>$(s).value='');tipSync();shO=[];$('#shdraft').hidden=true;$('#vat').checked=true;$('#addE').textContent='ثبت خرج';showForm(false);$('#cancelE').hidden=true;$('#ebn').hidden=true;$('#multi').checked=false;payList=[];payAmt={};$('#payer').value='';renderPayers(true);togglePay();renderParts();renderSh()}
+function startEdit(id){
+ const e=S.expenses.find(x=>String(x.id)===id);if(!e)return;
+ const s=e.src||{mode:2,items:e.parts,present:Object.keys(e.parts),shared:0,tip:0,vat:false};
+ editId=e.id;setMode(s.mode);$('#cat').value=e.cat||'';rcSet(e.img);
+ $('#title').value=e.title;setPayers(e);
+ $('#total').value=s.mode==1?s.total:'';shO=(s.sharedOrders||(s.shared>0?[{n:'',a:s.shared,who:s.present}]:[])).map(o=>({n:o.n,a:o.a,who:[...o.who]}));$('#shdraft').hidden=true;$('#tip').value=s.tip||'';tipSync();$('#vat').checked=!!s.vat;
+ document.querySelectorAll('#parts .pr').forEach(r=>{const p=S.people[+r.dataset.i];r.querySelector('input[type=checkbox]').checked=s.mode==1?s.names.includes(p):s.present.includes(p);const a=r.querySelector('input.amt');if(a)a.value=(s.items&&s.items[p])||'';const itl=r.querySelector('.itl');if(itl){const ls=s.lines&&s.lines[p]?s.lines[p]:(s.items&&s.items[p]?[{n:'',a:s.items[p]}]:[]);itl.innerHTML=ls.map(x=>itemRow(x.n,x.a)).join('');rowSummary(r)}const hf=r.querySelector('.hf');if(hf)hf.value=(s.half&&s.half.includes(p))?'0.5':'1'});
+ dateInit(dateOf(e));$('#addE').textContent='ذخیره تغییرات';$('#cancelE').hidden=false;$('#ebn').hidden=false;renderSh();fmtAll();prev();showTab('exp');showForm(true);
+}
+$('#cancelE').onclick=cancelEdit;
+$('#list').onclick=e=>{const d=e.target.dataset;if(d.goto){showTab(d.goto);return}if(d.edit){startEdit(d.edit);return}if(!d.ex)return;ask('این خرج حذف بشه؟',()=>undoable('خرج حذف شد',()=>{if(String(editId)===d.ex)cancelEdit();S.expenses=S.expenses.filter(x=>String(x.id)!==d.ex);save();all()}))};
+$('#result').onclick=e=>{const d=e.target.dataset;
+ if(d.pay!==undefined){const t=lastTr[+d.pay];if(!t)return;undoable('تسویه ثبت شد',()=>{S.payments.push({id:Date.now(),from:t.fromH,to:t.toH,amount:t.v});save();all()})}
+ else if(d.part!==undefined){const bx=$('#result').querySelector('[data-pbox="'+d.part+'"]');if(bx){bx.hidden=!bx.hidden;if(!bx.hidden)bx.querySelector('input').focus()}}
+ else if(d.pok!==undefined){const t=lastTr[+d.pok];if(!t)return;const a=num($('#result').querySelector('[data-pamt="'+d.pok+'"]').value);
+  if(!(a>0)){toast('مبلغ پرداخت‌شده رو وارد کن');return}
+  if(a>t.v){toast('مبلغ از بدهی باقی‌مانده ('+M(t.v)+') بیشتره');return}
+  undoable('تسویه ثبت شد',()=>{S.payments.push({id:Date.now(),from:t.fromH,to:t.toH,amount:Math.round(a)});save();all()})}
+ else if(d.unpay){ask('این تسویه حذف بشه؟',()=>undoable('تسویه حذف شد',()=>{S.payments=S.payments.filter(x=>String(x.id)!==d.unpay);save();all()}))}};
+const payersOf=e=>e.payers||{[e.payer]:e.total};
+function payLine(e){const py=payersOf(e),ks=Object.keys(py);return ks.length==1?'پرداخت‌کننده: <b>'+esc(dn(ks[0]))+'</b>':'پرداخت‌کننده‌ها: '+ks.map(k=>'<b>'+esc(dn(k))+'</b> ('+M(py[k])+')').join('، ')}
+function finalTotal(){
+ if(mode==1){if($('#multi').checked)return null;const b=num($('#total').value);if(b<=0)return null;return b+($('#vat').checked?Math.round(b*S.settings.vat/100):0)}
+ const r=invCalc();return r.err?null:r.total}
+function paySum(){const el=$('#paysum');if(!el)return;
+ let sp=0;const em=[];document.querySelectorAll('#payers .pr.on').forEach(r=>{const a=num(r.querySelector('input.amt').value);sp+=a;if(!a)em.push(S.people[+r.dataset.i])});
+ const t=finalTotal();let s='جمع پرداختی‌ها: '+M(sp);
+ if(mode==1)s='مجموع پرداختی‌ها (مبلغ کل خرج): '+M(sp);
+ if(t!=null){if(em.length==1&&t>sp)s+=' از '+M(t)+'. باقی‌مانده ('+M(t-sp)+') به «'+em[0]+'» می‌رسه.';else s+=' از '+M(t)+(sp===t?' ✓':' (باقی‌مانده '+M(t-sp)+')')}
+ el.textContent=s}
+function renderPayers(fresh){
+ const rows=fresh?[]:[...document.querySelectorAll('#payers .pr')];
+ if(rows.length){payList=[];rows.forEach(r=>{const n=S.people[+r.dataset.i];if(n&&r.querySelector('.pk').checked){payList.push(n);payAmt[n]=r.querySelector('input.amt').value}})}
+ payList=payList.filter(n=>S.people.includes(n));
+ $('#payers').innerHTML=S.people.length?'<div class="ph"><b>چه کسانی پرداخت کرده‌اند؟</b><span>تیک کسانی که پول داده‌اند را بزن و مبلغ هر نفر را بنویس.</span></div>'+
+ PL().map(n=>{const i=S.people.indexOf(n),on=payList.includes(n);return `<div class="pr${on?' on':''}" data-i="${i}"><label class="pl"><input type="checkbox" class="pk"${on?' checked':''}><span class="n">${esc(dn(n))}</span></label><input class="amt" inputmode="numeric" placeholder="مبلغ (${U()})" value="${esc(on?(payAmt[n]||''):'')}" aria-label="مبلغ پرداختی ${esc(n)}"></div>`}).join('')+'<div class="prev" id="paysum"></div>':'';
+ paySum();
+}
+$('#payers').addEventListener('change',e=>{const t=e.target;if(!t.classList.contains('pk'))return;const r=t.closest('.pr'),a=r.querySelector('input.amt');r.classList.toggle('on',t.checked);if(t.checked)a.focus();else a.value='';prev()});
+$('#payers').addEventListener('input',e=>{const t=e.target;if(!t.classList||!t.classList.contains('amt'))return;const r=t.closest('.pr'),k=r.querySelector('.pk');if(num(t.value)>0&&!k.checked){k.checked=true;r.classList.add('on')}});
+function syncUI(){const m=$('#multi').checked;$('#tot1').hidden=mode!=1||m;$('#vat').closest('.vw').hidden=mode==1&&m}
+function placeVat(){const v=document.querySelector('.vw');$(mode==1?'#amr':'#tipr').appendChild(v)}
+function togglePay(){const m=$('#multi').checked;$('#payer').hidden=m;$('#payers').hidden=!m;syncUI();if(m&&!payList.length&&$('#payer').value){payList.push($('#payer').value);renderPayers(true)}prev()}
+function setPayers(e){const py=payersOf(e),ks=Object.keys(py),m=ks.length>1;
+ $('#multi').checked=m;if(!m)$('#payer').value=ks[0];
+ payList=m?ks.filter(k=>S.people.includes(k)):[];payAmt={};ks.forEach(k=>payAmt[k]=fmt(py[k]));renderPayers(true);togglePay()}
+$('#multi').onchange=togglePay;
+let dlApi=null,pendingRestore=null;
+if(window.claude&&window.claude.use)window.claude.use('downloads').then(d=>{dlApi=d}).catch(()=>{});
+const bkJson=()=>JSON.stringify({app:'dong',version:2,exportedAt:new Date().toISOString(),events:DB.events.map(ev=>({id:ev.id,data:ev.data}))},null,1);
+function bkMsg(t,ok){document.querySelectorAll('.bkm').forEach(m=>{m.textContent=t;m.style.color=ok?'var(--cred)':'var(--debt)'})}
+async function doBkSave(){
+ const day=new Date().toISOString().slice(0,10),fn='dong-backup-'+day+'.json',txt=bkJson();
+ try{
+  if(dlApi){await dlApi.save({filename:fn,data:txt});bkMsg('فایل پشتیبان ذخیره شد ✓',true)}
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'application/json'}));a.download=fn;document.body.appendChild(a);a.click();a.remove();bkMsg('اگه دانلود شروع نشد، دوباره امتحان کن.',true)}
+ }catch(e){bkMsg(e&&e.code==='declined'?'ذخیره لغو شد.':'ذخیره‌ی فایل ممکن نشد.',false)}
+}
+
+// ===== export (PNG / PDF / CSV) =====
+const RP={W:800,pad:44,ink:'#14262b',mute:'#5d6f73',acc:'#0f6b66',cre:'#1d7a4a',deb:'#b3412c',line:'#cfdad8',bg:'#ffffff'};
+const rf=(w,sz)=>w+' '+sz+'px Vazirmatn,Tahoma,sans-serif';
+function exSync(){const sec=$('#exSec');if(!sec)return;const none=!S.expenses.length;sec.hidden=none;if(none&&!$('#exBar').hidden){$('#exBar').hidden=true;$('#exView').hidden=false;lockUI()}}
+function exTextFor(w){
+ const c=calc(),L=['🧾 '+((S.trip||'').trim()||'دُنگ‌یار'),'جمع کل خرج‌ها: '+M(S.expenses.reduce((a,e)=>a+e.total,0))+' ('+fmt(S.expenses.length)+' خرج)'];
+ secsFor(w).forEach(sec=>{
+  if(sec==='setl'&&!S.payments.length)return;
+  L.push('');
+  if(sec==='owed'){L.push('سهم هر نفر:');PL().filter(p=>c.owed[p]>0).forEach(p=>L.push('• '+dn(p)+': '+M(c.owed[p])))}
+  else if(sec==='paid'){L.push('جمع پرداختی هر نفر:');PL().filter(p=>c.paid[p]>0).forEach(p=>L.push('• '+dn(p)+': '+M(c.paid[p])))}
+  else if(sec==='list'){L.push('لیست خرج‌ها:','');S.expenses.forEach((e,i)=>{const py=payersOf(e),pk=Object.keys(py);
+   L.push(fmt(i+1)+') '+e.title+': '+M(e.total)+(dateOf(e)?' — '+dStr(dateOf(e)):''));
+   L.push('پرداخت: '+(pk.length==1?dn(pk[0]):pk.map(k=>dn(k)+' ('+M(py[k])+')').join('، ')));
+   L.push('سهم‌ها: '+Object.keys(e.parts).map(k=>dn(k)+' '+M(e.parts[k])).join('، '));
+   if(e.note)L.push('('+noteTxt(e.note)+')');
+   L.push('')});L.pop()}
+  else if(sec==='status'){L.push('وضعیت هر نفر:');Object.keys(c.acc).forEach(k=>{const b=c.acc[k];L.push('• '+c.label(k)+': '+(b>0?'بستانکار '+M(b):b<0?'بدهکار '+M(-b):'تسویه'))})}
+  else if(sec==='need'){L.push('پرداخت‌های لازم:');if(c.tr.length)c.tr.forEach(t=>L.push(t.from+' ← '+t.to+': '+M(t.v)));else L.push('همه تسویه‌ان ✅')}
+  else if(sec==='setl'){L.push('تسویه‌های انجام‌شده:');S.payments.forEach(x=>L.push(c.label(x.from)+' ← '+c.label(x.to)+': '+M(x.amount)))}
+ });
+ return L.join('\n')}
+function exHint(){
+ const t=$('#exType').value,w=$('#exWhat').value,txt=t==='txt',ready=!!t&&(t==='csv'||!!w);
+ $('#exWhatRow').hidden=t==='csv';
+ $('#exTxt').hidden=!(txt&&w);if(txt&&w)$('#exTxt').value=exTextFor(w);
+ $('#exGo').textContent=txt?'کپی متن':'دریافت فایل';$('#exGo').disabled=!ready;$('#exShare').hidden=!(txt||navigator.share);$('#exShare').disabled=!ready;
+ const long=t==='png'&&w&&w!=='sum'&&S.expenses.length>=25;
+ $('#exHint').textContent=!t?'':txt?'':t==='csv'?'یه جدول کامل: هر خرج یه ردیف و سهم هر نفر یه ستون، همراه جمع‌ها و پرداخت‌های لازم.':t==='pdf'?'گزارش به‌صورت صفحه‌های A4 ساخته می‌شه.':long?'گزارش بلنده؛ برای خوانایی بهتر PDF بگیر. تصویر هم ساخته می‌شه ولی یه عکس خیلی بلنده.':'یه تصویر بلند که راحت توی گروه فرستاده می‌شه.'}
+async function copyTxt(txt){
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(txt);return true}}catch(e){}
+ try{const ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;opacity:0;top:0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
+function wrapTxt(ctx,t,maxw){const out=[];String(t).split('\n').forEach(par=>{const ws=par.split(' ');let cur='';ws.forEach(w=>{const nx=cur?cur+' '+w:w;if(cur&&ctx.measureText(nx).width>maxw){out.push(cur);cur=w}else cur=nx});out.push(cur)});return out}
+const EXP_SECS=['owed','paid','list'],SUM_SECS=['status','need','setl'];
+const secsFor=w=>w==='exp'?EXP_SECS:w==='sum'?SUM_SECS:[...EXP_SECS,...SUM_SECS];
+function rItems(what){
+ const c=calc(),I=[],tot=S.expenses.reduce((a,e)=>a+e.total,0);
+ I.push({k:'title',t:(S.trip||'').trim()||'دُنگ‌یار'});
+ I.push({k:'sub',t:new Date().toLocaleDateString('fa-IR')+' — '+fmt(S.expenses.length)+' خرج',col:RP.mute});
+ I.push({k:'gap'});
+ I.push({k:'row',l:'جمع کل خرج‌ها',r:M(tot),b:1});
+ secsFor(what).forEach(sec=>{
+  if(sec==='setl'&&!S.payments.length)return;
+  I.push({k:'gap',h:12});
+  if(sec==='owed'){I.push({k:'h',t:'سهم هر نفر'});PL().filter(p=>c.owed[p]>0).forEach(p=>I.push({k:'row',l:dn(p),r:M(c.owed[p])}))}
+  else if(sec==='paid'){I.push({k:'h',t:'جمع پرداختی هر نفر'});PL().filter(p=>c.paid[p]>0).forEach(p=>I.push({k:'row',l:dn(p),r:M(c.paid[p])}))}
+  else if(sec==='list'){
+   I.push({k:'h',t:'لیست خرج‌ها'});
+   S.expenses.forEach((e,i)=>{
+    const py=payersOf(e),pk=Object.keys(py);
+    I.push({k:'row',l:fmt(i+1)+') '+e.title,r:M(e.total),b:1,keep:1});
+    if(dateOf(e))I.push({k:'text',t:dStr(dateOf(e)),col:RP.mute,size:14});
+    I.push({k:'text',t:'پرداخت: '+(pk.length==1?dn(pk[0]):pk.map(k=>dn(k)+' ('+M(py[k])+')').join('، ')),col:RP.mute,size:14});
+    I.push({k:'text',t:'سهم‌ها: '+Object.keys(e.parts).map(k=>dn(k)+' '+M(e.parts[k])).join('، '),size:14});
+    if(e.note)I.push({k:'text',t:'('+noteTxt(e.note)+')',col:RP.mute,size:13});
+    I.push({k:'line'});
+   })}
+  else if(sec==='status'){I.push({k:'h',t:'وضعیت هر نفر'});Object.keys(c.acc).forEach(k=>{const b=c.acc[k];I.push({k:'row',l:c.label(k),r:b>0?'بستانکار '+M(b):b<0?'بدهکار '+M(-b):'تسویه',col:b>0?RP.cre:b<0?RP.deb:RP.mute})})}
+  else if(sec==='need'){I.push({k:'h',t:'پرداخت‌های لازم'});if(c.tr.length)c.tr.forEach(t=>I.push({k:'row',l:t.from+' ← '+t.to,r:M(t.v),b:1}));else I.push({k:'text',t:'همه تسویه‌ان ✓',col:RP.cre})}
+  else if(sec==='setl'){I.push({k:'h',t:'تسویه‌های انجام‌شده'});S.payments.forEach(x=>I.push({k:'row',l:c.label(x.from)+' ← '+c.label(x.to),r:M(x.amount),col:RP.mute}))}
+ });
+ return I}
+function rLayout(items,ctx){
+ const cw=RP.W-2*RP.pad;
+ return items.map(it=>{
+  if(it.k==='gap')return{...it,h:it.h||14};
+  if(it.k==='line')return{...it,h:18};
+  const size=it.size||(it.k==='title'?30:it.k==='h'?21:it.k==='sub'?15:17),w=(it.k==='title'||it.k==='h'||it.b)?'700':'400',lh=Math.round(size*1.8);
+  ctx.font=rf(w,size);ctx.direction='rtl';
+  const lines=wrapTxt(ctx,it.k==='row'?it.l:it.t,it.k==='row'?cw*.6:cw);
+  return{...it,size,w,lh,lines,h:lines.length*lh+(it.k==='h'?8:2),keep:it.keep||it.k==='h'||it.k==='title'}});
+}
+function rPaginate(ops,pageH){
+ const pad=RP.pad,pages=[[]];let y=pad,cur=pages[0];
+ ops.forEach((o,i)=>{
+  if(pageH){const need=o.h+(o.keep&&ops[i+1]?ops[i+1].h:0);if(y+need>pageH-pad&&y>pad){pages.push(cur=[]);y=pad}}
+  if(cur.length===0&&pages.length>1&&(o.k==='gap'||o.k==='line'))return;
+  cur.push({o,y});y+=o.h});
+ return{pages,total:y+pad}}
+function rPage(pg,w,h,sc){
+ const cv=document.createElement('canvas');cv.width=Math.round(w*sc);cv.height=Math.round(h*sc);
+ const x=cv.getContext('2d');x.scale(sc,sc);x.fillStyle=RP.bg;x.fillRect(0,0,w,h);x.fillStyle=RP.acc;x.fillRect(0,0,w,8);
+ x.direction='rtl';x.textBaseline='alphabetic';
+ pg.forEach(({o,y})=>{
+  if(o.k==='gap')return;
+  if(o.k==='line'){x.fillStyle=RP.line;x.fillRect(RP.pad,y+9,w-2*RP.pad,1);return}
+  x.font=rf(o.w,o.size);
+  o.lines.forEach((ln,i)=>{
+   const by=y+i*o.lh+o.size*1.25;
+   x.fillStyle=o.k==='h'?RP.acc:(o.col&&o.k!=='row'?o.col:RP.ink);x.textAlign='right';x.fillText(ln,w-RP.pad,by);
+   if(o.k==='row'&&i===0){x.font=rf(o.b?'700':'400',o.size);x.fillStyle=o.col||RP.ink;x.textAlign='left';x.fillText(o.r,RP.pad,by);x.font=rf(o.w,o.size)}
+  });
+  if(o.k==='h'){x.fillStyle=RP.acc;x.globalAlpha=.25;x.fillRect(RP.pad,y+o.h-3,w-2*RP.pad,1.5);x.globalAlpha=1}
+ });
+ return cv}
+const cvBlob=(cv,type,q)=>new Promise((ok,no)=>cv.toBlob(b=>b?ok(b):no(new Error('canvas')),type,q));
+async function rRender(what,asPdf){
+ try{await document.fonts.load('700 20px Vazirmatn');await document.fonts.load('400 16px Vazirmatn')}catch(e){}
+ const m=document.createElement('canvas').getContext('2d'),ops=rLayout(rItems(what),m);
+ if(!asPdf){const {pages,total}=rPaginate(ops,0),H=Math.ceil(total),sc=Math.max(.5,Math.min(2,15000/H,Math.sqrt(16e6/(RP.W*H))));return cvBlob(rPage(pages[0],RP.W,H,sc),'image/png')}
+ const PH=Math.round(RP.W*842/595),{pages}=rPaginate(ops,PH),jp=[];
+ for(const pg of pages){const cv=rPage(pg,RP.W,PH,2),b=await cvBlob(cv,'image/jpeg',.92);jp.push({bytes:new Uint8Array(await b.arrayBuffer()),w:cv.width,h:cv.height})}
+ return mkPdf(jp)}
+function mkPdf(jp){
+ const enc=new TextEncoder(),parts=[],off=[];let len=0;
+ const push=x=>{const b=typeof x==='string'?enc.encode(x):x;parts.push(b);len+=b.length};
+ const obj=(n,fn)=>{off[n]=len;push(n+' 0 obj\n');fn();push('\nendobj\n')};
+ push('%PDF-1.4\n');
+ const N=jp.length;
+ obj(1,()=>push('<< /Type /Catalog /Pages 2 0 R >>'));
+ obj(2,()=>push('<< /Type /Pages /Kids ['+jp.map((_,i)=>(5+3*i)+' 0 R').join(' ')+'] /Count '+N+' >>'));
+ jp.forEach((j,i)=>{const im=3+3*i,ct=4+3*i,pg=5+3*i,cs='q 595 0 0 842 0 0 cm /Im'+i+' Do Q';
+  obj(im,()=>{push('<< /Type /XObject /Subtype /Image /Width '+j.w+' /Height '+j.h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+j.bytes.length+' >>\nstream\n');push(j.bytes);push('\nendstream')});
+  obj(ct,()=>push('<< /Length '+cs.length+' >>\nstream\n'+cs+'\nendstream'));
+  obj(pg,()=>push('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im'+i+' '+im+' 0 R >> >> /Contents '+ct+' 0 R >>'))});
+ const xr=len,T=3+3*N;
+ push('xref\n0 '+T+'\n0000000000 65535 f \n');
+ for(let n=1;n<T;n++)push(String(off[n]).padStart(10,'0')+' 00000 n \n');
+ push('trailer\n<< /Size '+T+' /Root 1 0 R >>\nstartxref\n'+xr+'\n%%EOF');
+ return new Blob(parts,{type:'application/pdf'})}
+function csvBlob(){
+ const c=calc(),P=PL(),q=v=>{v=String(v==null?'':v);return /[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v},R=[];
+ const row=a=>R.push(a.map(q).join(','));
+ row([(S.trip||'').trim()||'دُنگ‌یار','','','','',...P.map(()=>'')]);
+ row(['ردیف','عنوان','تاریخ','مبلغ کل ('+U()+')','پرداخت‌کننده',...P.map(p=>dn(p))]);
+ row(['','سهم هر نفر','','','',...P.map(p=>c.owed[p]||0)]);
+ row(['','جمع پرداختی هر نفر','','','',...P.map(p=>c.paid[p]||0)]);
+ R.push('');row(['لیست خرج‌ها']);
+ S.expenses.forEach((e,i)=>{const py=payersOf(e);row([i+1,e.title,dateOf(e)?dStr(dateOf(e)):'',e.total,Object.keys(py).map(k=>dn(k)).join('، '),...P.map(p=>e.parts[p]||0)])});
+ R.push('');
+ row(['','وضعیت هر نفر (مثبت: بستانکار، منفی: بدهکار)','','','',...P.map(p=>c.bal[p]||0)]);
+ R.push('');row(['پرداخت‌های لازم']);
+ if(c.tr.length)c.tr.forEach(t=>row(['',t.from+' ← '+t.to,'',t.v]));else row(['','همه تسویه‌ان']);
+ return new Blob(['﻿'+R.join('\r\n')],{type:'text/csv'})}
+async function exSave(blob,fn){
+ if(dlApi){await dlApi.save({filename:fn,data:blob});return}
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;$('#exBar').appendChild(a);a.click();a.remove()}  // inside the bar: the page lock would swallow the click otherwise
+function exClose(){$('#exType').value='';$('#exWhat').value='';$('#exBar').hidden=true;$('#exView').hidden=false;$('#exMsg').textContent='';lockUI()}
+$('#exOpen').onclick=()=>{$('#exType').value='';$('#exWhat').value='';exHint();$('#exMsg').textContent='';$('#exMsg').style.color='';$('#exView').hidden=true;$('#exBar').hidden=false;lockUI()};
+$('#exType').onchange=exHint;$('#exWhat').onchange=exHint;
+$('#exCancel').onclick=exClose;
+$('#exGo').onclick=async()=>{
+ const t=$('#exType').value,w=$('#exWhat').value,msg=$('#exMsg'),btn=$('#exGo');
+ if(!t||(t!=='csv'&&!w))return;
+ if(t==='txt'){if(await copyTxt($('#exTxt').value)){exClose();toast('متن کپی شد ✓')}else{msg.style.color='var(--debt)';msg.textContent='کپی نشد؛ متن رو دستی انتخاب و کپی کن.';$('#exTxt').select()}return}
+ btn.disabled=true;msg.style.color='var(--mute)';msg.textContent='در حال ساخت…';
+ const fn='dong-report-'+new Date().toISOString().slice(0,10)+'.'+t;
+ try{
+  const blob=t==='csv'?csvBlob():await rRender(w,t==='pdf');
+  try{await exSave(blob,fn);btn.disabled=false;exClose();toast('ذخیره شد ✓');return}
+  catch(e){if(e&&e.code==='declined'){msg.style.color='var(--mute)';msg.textContent='ذخیره لغو شد.'}else throw e}
+ }catch(e){msg.style.color='var(--debt)';msg.textContent='ساخت فایل ممکن نشد.'}
+ btn.disabled=false};
+
+$('#exShare').onclick=async()=>{
+ const t=$('#exType').value,w=$('#exWhat').value,msg=$('#exMsg'),btn=$('#exShare');
+ if(!t||(t!=='csv'&&!w))return;
+ const bad=m=>{msg.style.color='var(--debt)';msg.textContent=m};
+ try{
+  if(t==='txt'){const x=$('#exTxt').value;
+   if(navigator.share){await navigator.share({title:'گزارش دُنگ‌یار',text:x});exClose();return}
+   window.open('https://wa.me/?text='+encodeURIComponent(x),'_blank','noopener');return}
+  btn.disabled=true;msg.style.color='var(--mute)';msg.textContent='در حال ساخت…';
+  const blob=t==='csv'?csvBlob():await rRender(w,t==='pdf'),file=new File([blob],'dongyar-report-'+new Date().toISOString().slice(0,10)+'.'+t,{type:blob.type});
+  if(navigator.canShare&&!navigator.canShare({files:[file]})){bad('این مرورگر ارسال مستقیم این فایل رو پشتیبانی نمی‌کنه؛ «دریافت فایل» رو بزن.');btn.disabled=false;return}
+  await navigator.share({files:[file],title:'گزارش دُنگ‌یار'});exClose()
+ }catch(e){if(e&&e.name==='AbortError')msg.textContent='';else bad('ارسال نشد؛ «دریافت فایل» رو امتحان کن.')}
+ btn.disabled=false};
+
+// ===== first-run tour =====
+const TOUR=[
+ ['home','رویداد بساز','برای هر سفر یا دورهمی یه رویداد بساز و اسمش رو بنویس. حساب هر رویداد از بقیه جداست.'],
+ ['group','گروه رو مشخص کن','توی تب «گروه» اسم افراد رو اضافه کن (بزرگسال یا کودک). حساب مشترک (همسر، فرزند، مهمان) هم همین‌جاست. تنخواه و شماره کارت‌ها رو هم توی تب «صندوق» ثبت می‌کنی.'],
+ ['exp','خرج ثبت کن','هر خرج رو با مبلغ، پرداخت‌کننده و افراد شریک ثبت کن. اقلام فاکتور، سفارش مشترک، انعام و ارزش افزوده رو هم می‌تونی مشخص کنی. انتخاب دسته‌بندی و عکس فاکتور (اختیاریه).'],
+ ['res','تسویه کن','تب «تسویه» نشون می‌ده هر نفر چقدر بدهکار یا بستانکاره و چه پرداخت‌هایی حساب‌ها رو صاف می‌کنه. شماره کارت‌ها رو هم برای واریز می‌تونی همین‌جا کپی کنی؛ خروجی گزارش هم از همین‌جاست.'],
+ ['gear','تنظیمات از چرخ‌دنده','برای تغییر ظاهر (روشن یا تیره)، واحد پول، پشتیبان‌گیری و راهنما، از دکمهٔ «تنظیمات» (چرخ‌دنده) بالای صفحه استفاده کن.'],
+ ['done','اطلاعات فقط توی همین مرورگر می‌مونه','پس هر چند وقت یک‌بار از «تنظیمات» (چرخ‌دنده‌ی بالای صفحه) یه نسخه‌ی پشتیبان ذخیره کن تا اطلاعاتت از دست نره.','خوش باشید و خوش‌حساب 🌿']];
+let tourI=0;
+const TICO={group:'<circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.4 0 4 1.7 4 4.2"/>',home:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',exp:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',res:'<path d="M4 8h13l-3-3M20 16H7l3 3"/>',gear:'<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',done:'<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/>'};
+function tourDraw(){const d=TOUR[tourI];$('#tourIc').innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+TICO[d[0]]+'</svg>';$('#tourT').textContent=d[1];$('#tourP').textContent=d[2];$('#tourSlogan').textContent=d[3]||'';$('#tourSlogan').hidden=!d[3];
+ $('#tourDots').innerHTML=TOUR.map((_,i)=>'<i class="'+(i===tourI?'on':'')+'"></i>').join('');
+ $('#tourPrev').hidden=tourI===0;$('#tourNext').textContent=tourI===TOUR.length-1?'شروع کنیم':'بعدی'}
+function tourOpen(){tourI=0;tourDraw();$('#tour').hidden=false;$('#tourNext').focus()}
+function tourClose(){$('#tour').hidden=true;if(!DB.prefs.tourDone){DB.prefs.tourDone=true;save()}}
+$('#tourNext').onclick=()=>{if(tourI>=TOUR.length-1)tourClose();else{tourI++;tourDraw()}};
+$('#tourPrev').onclick=()=>{if(tourI>0){tourI--;tourDraw()}};
+$('#tourSkip').onclick=tourClose;
+$('#tourShow').onclick=tourOpen;
+
+function normalize(d){
+ const o={trip:typeof d.trip==='string'?d.trip:'',people:[],kids:{},fam:{},card:{},fund:{on:false,deposits:[]},link:{},settings:{vat:10,unit:'ریال'},expenses:[],payments:[]};
+ const oldUnit=d.settings&&d.settings.unit;
+ d.people.forEach(p=>{if(typeof p==='string'&&p&&!o.people.includes(p))o.people.push(p)});
+ if(d.kids&&typeof d.kids==='object')for(const k in d.kids)if(o.people.includes(k)&&d.kids[k])o.kids[k]=true;
+ if(d.fam&&typeof d.fam==='object')for(const k in d.fam)if(o.people.includes(k)&&typeof d.fam[k]==='string'&&d.fam[k])o.fam[k]=d.fam[k];
+ if(d.link&&typeof d.link==='object')for(const k in d.link)if(o.people.includes(k)&&o.people.includes(d.link[k])&&k!==d.link[k])o.link[k]=d.link[k];
+ if(d.card&&typeof d.card==='object')for(const k in d.card)if((o.people.includes(k)||k===FUND)&&/^[0-9]{16}$/.test(d.card[k]))o.card[k]=d.card[k];
+ const v=d.settings?Number(d.settings.vat):NaN;if(isFinite(v)&&v>=0&&v<=100)o.settings.vat=v;
+ o.expenses=d.expenses.filter(e=>e&&typeof e.total==='number'&&e.parts&&typeof e.parts==='object');o.expenses.forEach(e=>{if(!CATS.some(c=>c[0]===e.cat))delete e.cat;if(typeof e.img!=='string'||!/^data:image\/(jpeg|png|webp);base64,/.test(e.img))delete e.img});
+ if(d.fund&&Array.isArray(d.fund.deposits))d.fund.deposits.forEach((x,i)=>{if(x&&o.people.includes(x.p)&&typeof x.amt==='number'&&isFinite(x.amt)&&x.amt>0)o.fund.deposits.push(Object.assign({id:typeof x.id==='number'?x.id:Date.now()+i,p:x.p,amt:Math.round(x.amt)},Array.isArray(x.date)&&x.date.length===3&&x.date.every(n=>Number.isInteger(n))?{date:x.date}:{}))});
+ o.fund.on=!!(d.fund&&d.fund.on)||o.fund.deposits.length>0||o.expenses.some(e=>e.payer===FUND||(e.payers&&FUND in e.payers));
+ o.payments=(Array.isArray(d.payments)?d.payments:[]).filter(x=>x&&x.from&&x.to&&typeof x.amount==='number');
+ const okU=!!(d.settings&&d.settings.unitOk===true);
+ if(!okU&&oldUnit!=='ریال'&&(o.expenses.length||o.payments.length))convertAmounts(10,o);
+ o.settings.unit=okU&&oldUnit==='تومان'?'تومان':'ریال';o.settings.unitOk=true;
+ return o}
+function bkParse(text){
+ let d;try{d=JSON.parse(text)}catch(e){bkMsg('فایل معتبر نیست.',false);return}
+ if(d&&Array.isArray(d.events)){
+  const evs=d.events.filter(e=>e&&e.data&&Array.isArray(e.data.people)&&Array.isArray(e.data.expenses)).map((e,i)=>({id:(typeof e.id==='number'&&isFinite(e.id)?e.id:Date.now()+i),data:normalize(e.data)}));
+  if(!evs.length){bkMsg('این فایل رویدادی نداره.',false);return}
+  if(DB.events.length){pendingRestore=evs;bkMsg('این پشتیبان شامل '+fmt(evs.length)+' رویداده. همه‌ی رویدادهای فعلی با اون جایگزین می‌شن.',false);$('#bkOkRow').hidden=false}
+  else applyRestore(evs);
+  return}
+ if(d&&d.data&&typeof d.data==='object')d=d.data;
+ if(!d||!Array.isArray(d.people)||!Array.isArray(d.expenses)){bkMsg('این فایل، پشتیبان دُنگ‌یار نیست.',false);return}
+ DB.events.push({id:Date.now(),data:normalize(d)});save();renderHome();bkMsg('این پشتیبان قدیمی بود و به‌عنوان یه رویداد جدید اضافه شد ✓',true);toast('رویداد جدید اضافه شد ✓')}
+function applyRestore(evs){DB.events=evs;DB.activeId=null;migrateGlobals();save();pendingRestore=null;$('#bkOkRow').hidden=true;renderHome();setView('home');bkMsg('',true);toast('بازیابی انجام شد ✓')}
+$('#bkSave').onclick=doBkSave;
+const readBk=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>bkParse(String(r.result));r.onerror=()=>bkMsg('خوندن فایل ممکن نشد.',false);r.readAsText(f);e.target.value=''};
+$('#bkFile').onchange=readBk;$('#hFile').onchange=readBk;
+$('#bkOk').onclick=()=>{if(pendingRestore)applyRestore(pendingRestore)};
+$('#bkNo').onclick=()=>{pendingRestore=null;$('#bkOkRow').hidden=true;bkMsg('',true)};
+function setTrip(){const t=(S.trip||'').trim();$('#h1').textContent=t||'دُنگ‌یار';document.title=t?t+' | دُنگ‌یار | Dongyar':'دُنگ‌یار | Dongyar'}
+$('#trip').oninput=()=>{S.trip=$('#trip').value;save();setTrip()};
+$('#trip').value=S.trip;setTrip();
+{let ch=false;DB.events.forEach(ev=>{const d=ev.data;if(d.settings.unit!=='ریال'&&!d.settings.unitOk){if(d.expenses.length||d.payments.length)convertAmounts(10,d);d.settings.unit='ریال';ch=true}d.settings.unitOk=true});save()}
+let toastT=null,undoSt=null;
+function toast(m){const t=$('#toast');undoSt=null;t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>{t.hidden=true},2200)}
+function undoable(msg,fn){
+ const snap=JSON.stringify(DB);fn();
+ undoSt={snap,after:JSON.stringify(DB)};
+ const t=$('#toast');t.textContent='';const sp=document.createElement('span');sp.textContent=msg;
+ const b=document.createElement('button');b.id='toastUndo';b.className='tundo';b.textContent='بازگردانی';
+ t.append(sp,b);t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>{t.hidden=true;undoSt=null},8000)}
+$('#toast').onclick=e=>{
+ if(e.target.id!=='toastUndo'||!undoSt)return;const u=undoSt;
+ if(JSON.stringify(DB)!==u.after){toast('بعد از این کار تغییر دیگه‌ای هم ثبت شده؛ بازگردانی ممکن نیست.');return}
+ DB=JSON.parse(u.snap);DB.events.forEach(ev=>fixData(ev.data));
+ const ev=DB.events.find(x=>x.id===DB.activeId);save();
+ if(ev){S=ev.data;editId=null;renderPeople();all()}else renderHome();
+ toast('بازگردانی شد ✓')};
+let dlgFn=null,dlgNoFn=null;
+function ask(msg,fn,no){dlgFn=fn;dlgNoFn=no||null;$('#dlgMsg').textContent=msg;$('#dlg').hidden=false;$('#dlgNo').focus()}
+function closeAsk(){$('#dlg').hidden=true;dlgFn=null;dlgNoFn=null}
+$('#dlgYes').onclick=()=>{const f=dlgFn;closeAsk();if(f)f()};
+$('#dlgNo').onclick=()=>{const n=dlgNoFn;closeAsk();if(n)n()};
+$('#dlg').onclick=e=>{if(e.target.id==='dlg')closeAsk()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#dlg').hidden)closeAsk()});
+function setView(v){if(v!=='wiz')sharedBack();$('#home').hidden=v!=='home';$('#wiz').hidden=v!=='wiz';$('#app').hidden=v!=='app';$('#settings').hidden=v!=='settings';window.scrollTo(0,0)}
+function renderHome(){
+ $('#hRestore').hidden=DB.events.length>0;
+ $('#evlist').innerHTML=DB.events.length?DB.events.slice().reverse().map(ev=>{const d=ev.data,tot=d.expenses.reduce((a,e)=>a+e.total,0);
+  return `<section class="ev" data-open="${ev.id}"><div class="t"><b>${esc(d.trip||'بدون نام')}</b></div><div class="d">${fmt(d.people.length)} نفر · ${fmt(d.expenses.length)} خرج · ${M(tot)}</div><div class="row"><button class="p" data-open="${ev.id}">باز کردن</button><button class="x" data-evdel="${ev.id}">حذف</button></div></section>`}).join(''):'<div class="empty" style="margin-bottom:14px">هنوز رویدادی نداری. با «+ رویداد جدید» شروع کن.</div>';
+}
+function deleteEvent(id){DB.events=DB.events.filter(x=>x.id!==id);if(DB.activeId===id)DB.activeId=null;save()}
+function goHome(){save();DB.activeId=null;renderHome();setView('home')}
+function openEvent(id){
+ const ev=DB.events.find(e=>e.id===id);if(!ev)return;
+ DB.activeId=id;S=ev.data;editId=null;sgDr=null;fdEd=null;cardEd=null;fseg=1;ccForm=false;fdReset();$('#sharedbox').open=Object.keys(S.link).length>0;payList=[];payAmt={};
+ setMode(1);cancelEdit();$('#trip').value=S.trip;setTrip();renderPeople();all();
+ showTab(S.people.length?'exp':'group');showForm(false);setView('app')}
+$('#evlist').onclick=e=>{const d=e.target.dataset;
+ if(d.evdel){const id=+d.evdel,ev=DB.events.find(x=>x.id===id);if(!ev)return;
+  ask('رویداد «'+(ev.data.trip||'بدون نام')+'» حذف بشه؟ همه‌ی افراد و خرج‌هاش پاک می‌شه.',()=>undoable('رویداد حذف شد',()=>{deleteEvent(id);renderHome()}));return}
+ const o=e.target.closest('[data-open]');if(o)openEvent(+o.dataset.open)};
+function sharedBack(){const sb=$('#sharedbox'),hm=$('#sharedHome');if(sb&&hm&&sb.parentNode!==hm)hm.appendChild(sb)}
+function wizShow(n){['wiz1','wiz2','wiz3','wiz4'].forEach((id,i)=>{$('#'+id).hidden=n!==i+1});
+ $('#wizStep').textContent=n===1?'مرحله ۱ از ۳: نام رویداد':n===2?'مرحله ۲ از ۳: افراد گروه':'مرحله ۳ از ۳: حساب مشترک';
+ if(n===4){sgDr=null;$('#wSharedSlot').appendChild($('#sharedbox'));$('#sharedbox').open=true;renderPeople()}else sharedBack()}
+$('#wsYes').onclick=()=>wizShow(4);
+$('#wsNo').onclick=()=>openEvent(DB.activeId);
+$('#wback3').onclick=()=>wizShow(2);
+$('#wback4').onclick=()=>wizShow(3);
+$('#wstart2').onclick=()=>openEvent(DB.activeId);
+function renderWiz2(){$('#pcount').textContent=S.people.length?fmt(S.people.length)+' نفر':'';$('#wpeople').innerHTML=S.people.length?S.people.map(p=>`<span class="chip">${av(p)}${esc(dn(p))}${S.kids[p]?' (کودک)':''}<button class="x" data-wdel="${esc(p)}" aria-label="حذف ${esc(p)}">حذف</button></span>`).join(''):'<span class="empty">هنوز کسی اضافه نشده.</span>'}
+$('#newEv').onclick=()=>{$('#wname').value='';$('#wer1').textContent='';wizShow(1);setView('wiz');$('#wname').focus()};
+$('#wizBack').onclick=goHome;
+$('#wnext').onclick=()=>{const n=$('#wname').value.trim();if(!n){$('#wer1').textContent='نام رویداد را مشخص کن.';return}
+ const last=DB.events[DB.events.length-1],ev={id:Date.now(),createdAt:Date.now(),data:blankData(defVat(),defUnit())};
+ ev.data.trip=n;DB.events.push(ev);DB.activeId=ev.id;S=ev.data;save();$('#wer2').textContent='';renderWiz2();wizShow(2);$('#wpn').focus()};
+$('#wname').onkeydown=e=>{if(e.key==='Enter')$('#wnext').click()};
+$('#wpadd').onclick=()=>{if(personAdd($('#wpn').value,$('#wpf').value,$('#wptype').value==='k',$('#wer2'))){$('#wptype').value='a';syncSeg($('#wptype'));$('#wpn').value='';$('#wpf').value='';save();renderWiz2();$('#wpn').focus()}};
+$('#wpf').onkeydown=e=>{if(e.key==='Enter')$('#wpadd').click()};
+$('#wpn').onkeydown=e=>{if(e.key==='Enter')$('#wpadd').click()};
+$('#wpeople').onclick=e=>{const p=e.target.dataset.wdel;if(!p)return;S.people=S.people.filter(x=>x!==p);delete S.kids[p];if(S.fam)delete S.fam[p];if(S.card)delete S.card[p];save();renderWiz2()};
+$('#wnext2').onclick=()=>{if(S.people.length<2){$('#wer2').textContent='حداقل دو نفر لازمه.';return}wizShow(3)};
+migrateGlobals();applyTheme();
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener('load',()=>{try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}})}
+renderHome();setView('home');
+if(!DB.events.length&&!DB.prefs.tourDone)tourOpen();
+</script>
+</body>
+</html>
