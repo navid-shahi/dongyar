@@ -1,6 +1,6 @@
 /* Dongyar service worker — © Navid Shahi
    هر بار نسخه‌ی جدید منتشر می‌کنی، عدد VERSION رو عوض کن تا گوشی‌ها به‌روز بشن. */
-const VERSION = 'dongyar-v40';
+const VERSION = 'dongyar-v42';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
