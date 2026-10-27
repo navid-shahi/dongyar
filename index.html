@@ -525,8 +525,6 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 .fdf select{flex:0 0 36%}.fdf input#ccN{flex:1 1 64%;padding-inline:8px;letter-spacing:0;font-size:16px}
 .crow .ca{flex-wrap:wrap}.crow .ca input{flex:1 1 100%;padding-inline:8px;letter-spacing:0;font-size:16px}
 
-#kbDone{position:fixed;right:12px;left:auto;bottom:12px;z-index:40;min-height:38px;padding:0 14px;border-radius:19px;box-shadow:0 3px 12px rgba(0,0,0,.25);display:inline-flex;align-items:center;gap:5px;font-size:14px}
-#kbDone[hidden]{display:none}
 #phbox>summary{display:block;font-weight:700}#phbox .fdf input{text-align:left}
 </style>
 </head>
@@ -1753,20 +1751,8 @@ renderHome();setView('home');
  const TXT='input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=button]):not([type=submit]),textarea';
  const isTxt=el=>!!(el&&el.matches&&el.matches(TXT));
  const touch=matchMedia('(pointer:coarse)').matches||matchMedia('(hover:none)').matches;
- const bar=document.createElement('button');bar.type='button';bar.id='kbDone';bar.className='p';bar.hidden=true;
- bar.innerHTML='<svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> تمام';
- document.body.appendChild(bar);
- const vv=window.visualViewport;
- function place(){if(bar.hidden)return;let off=vv?Math.max(0,window.innerHeight-(vv.height+vv.offsetTop)):0;if(off<80)off=330;bar.style.bottom=(off+10)+'px'}
- function done(){const a=document.activeElement;if(isTxt(a))a.blur();bar.hidden=true}
- bar.addEventListener('pointerdown',e=>e.preventDefault());
- bar.addEventListener('mousedown',e=>e.preventDefault());
- bar.onclick=done;
  document.addEventListener('focusin',e=>{const t=e.target;if(!isTxt(t))return;
-  if(!t.hasAttribute('enterkeyhint'))t.setAttribute('enterkeyhint',t.id==='title'?'next':'done');
-  if(touch||document.documentElement.dataset.kb==='1'){bar.hidden=false;place()}});
- document.addEventListener('focusout',()=>{setTimeout(()=>{if(!isTxt(document.activeElement))bar.hidden=true},60)});
- if(vv){vv.addEventListener('resize',place);vv.addEventListener('scroll',place)}
+  if(!t.hasAttribute('enterkeyhint'))t.setAttribute('enterkeyhint',t.id==='title'?'next':'done')});
  document.addEventListener('keydown',e=>{if(e.key!=='Enter'||e.defaultPrevented||e.isComposing)return;const t=e.target;if(!isTxt(t)||t.tagName==='TEXTAREA'||t.type==='search')return;
   if(t.id==='title'){const n=$('#total');if(n&&!n.closest('[hidden]')){e.preventDefault();n.focus();return}}
   e.preventDefault();t.blur()});
