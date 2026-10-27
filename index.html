@@ -526,6 +526,8 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 .crow .ca{flex-wrap:wrap}.crow .ca input{flex:1 1 100%;padding-inline:8px;letter-spacing:0;font-size:16px}
 
 #phbox>summary{display:block;font-weight:700}#phbox .fdf input{text-align:left}
+
+.tc2a .nm{border:1px solid var(--line);background:var(--soft);border-radius:99px;padding:3px 12px 3px 4px;max-width:44%}
 </style>
 </head>
 <body>
@@ -605,8 +607,8 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <button id="sgNew" style="margin-top:12px">+ حساب مشترک جدید</button>
 </details></div></section>
 
-<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span><span class="stn">برای پیامک و واتساپ مستقیم · اختیاری</span></summary>
-<div class="empty" style="margin-top:6px">شماره‌ی موبایل هر نفر رو اینجا ثبت کن تا دکمه‌های پیامک و واتساپ توی «تسویه» مستقیم همون مخاطب رو باز کنن.</div>
+<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span></summary>
+<div class="empty" style="margin-top:6px">شماره‌ی موبایل هر نفر رو اینجا ثبت کن تا دکمه‌های پیامک و واتساپ توی «تسویه» مستقیم همون مخاطب رو باز کنن. تلگرام شماره رو نمی‌گیره؛ پیام آماده می‌شه و مخاطب رو خودت انتخاب می‌کنی.</div>
 <div id="phList"></div>
 <button id="phNew" style="margin-top:10px">+ افزودن شماره موبایل</button>
 <div id="phForm" hidden>
@@ -618,7 +620,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 </div>
 
 <div id="tab-fund" class="tab" hidden>
-<section><details id="fundbox"><summary><span class="sth"><b>تنخواه</b><span class="stbadge" id="fundBadge"></span></span><span class="stn">پول مشترکی که یک نفر نگه می‌داره و خرج‌ها ازش پرداخت می‌شه · اختیاری</span></summary>
+<section><details id="fundbox"><summary><span class="sth"><b>تنخواه</b><span class="stbadge" id="fundBadge"></span></span><span class="stn">پول مشترکی که یک نفر نگه می‌داره و خرج‌ها ازش پرداخت می‌شه</span></summary>
 <div id="fundAsk">
 <div class="empty" style="margin-top:6px">اگه قراره همه مبلغی به یه کارت مشترک (مادرخرج) بریزن و خرج‌ها از اون پرداخت بشه، تنخواه رو فعال کن. هر کس هر مبلغی بخواد می‌تونه واریز کنه.</div>
 <div class="askq">برای این رویداد تنخواه فعال بشه؟</div>
@@ -639,7 +641,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <button class="x" id="fundDisable" style="margin-top:12px">غیرفعال‌کردن تنخواه</button>
 </div>
 </details></section>
-<section><details id="loanbox"><summary><span class="sth"><b>قرض و بدهی‌های قبلی</b><span class="stbadge" id="loanBadge"></span></span><span class="stn">اگه کسی از قبل (یا وسط سفر) به دیگری پول قرض داده · اختیاری</span></summary>
+<section><details id="loanbox"><summary><span class="sth"><b>قرض و بدهی‌های قبلی</b><span class="stbadge" id="loanBadge"></span></span><span class="stn">اگه کسی از قبل (یا وسط سفر) به دیگری پول قرض داده</span></summary>
 <div class="empty" style="margin-top:6px">اینجا ثبتش کن تا توی تسویه حساب بشه. قرض جزو خرج‌ها و آمار حساب نمی‌شه.</div>
 <div id="lnList"></div>
 <button id="lnNew" style="margin-top:10px">+ ثبت قرض</button>
@@ -650,7 +652,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <div class="err" id="lnErr" role="status"></div>
 </div>
 </details></section>
-<section><details id="cardsbox"><summary><span class="sth"><b>شماره کارت‌ها</b><span class="stbadge" id="cardBadge"></span></span><span class="stn">برای واریز و پیام یادآوری · اختیاری</span></summary>
+<section><details id="cardsbox"><summary><span class="sth"><b>شماره کارت‌ها</b><span class="stbadge" id="cardBadge"></span></span><span class="stn">برای واریز و پیام یادآوری</span></summary>
 <div class="empty" style="margin-top:6px">شماره‌ی کارت هر کسی که ممکنه بستانکار بشه رو اضافه کن تا پایین تب «تسویه» با یه کلیک کپی بشه. برای حساب مشترک، فقط کارت سرگروه کافیه.</div>
 <div class="cardblock" id="ccBlock"><div id="ccList"></div><div class="err cerr" role="status"></div></div>
 <button id="ccNew" style="margin-top:10px">+ افزودن شماره کارت</button>
@@ -1062,7 +1064,7 @@ const ICS={sms:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',wa:'<pa
 const sic=k=>'<svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+ICS[k]+'</svg>';
 const phNorm=v=>{let d=latin(String(v)).replace(/\D/g,'');if(d.startsWith('0098'))d=d.slice(4);else if(d.startsWith('98')&&d.length===12)d=d.slice(2);if(d.length===10&&d[0]==='9')d='0'+d;return /^09[0-9]{9}$/.test(d)?d:null};
 const phIntl=d=>'98'+d.slice(1),phShow=d=>d.slice(0,4)+' '+d.slice(4,7)+' '+d.slice(7);
-function msgText(t){const cd=(S.card||{})[t.toH];return t.from+(t.fromH===FUND?'':' جان')+'، لطفاً مبلغ '+M(t.v)+' بابت دنگ '+((S.trip||'').trim()?'«'+S.trip.trim()+'»':'گروه')+' به '+(cd?'کارت ':'حساب ')+t.to+' واریز کن.'+(cd?'\nشماره کارت '+t.to+': '+cd:'')+'\n«ساخته‌شده با دُنگ‌یار»'}
+function msgText(t){const cd=(S.card||{})[t.toH];return t.from+(t.fromH===FUND?'':(famOf(t.fromH)?' عزیز':' جان'))+'، لطفاً مبلغ '+M(t.v)+' بابت دنگ '+((S.trip||'').trim()?'«'+S.trip.trim()+'»':'گروه')+' به '+(cd?'کارت ':'حساب ')+t.to+' واریز کن.'+(cd?'\nشماره کارت '+t.to+': '+cd:'')+'\n«ساخته‌شده با دُنگ‌یار»'}
 function openExt(u){try{if(/^sms:/.test(u))location.href=u;else window.open(u,'_blank','noopener')}catch(e){}}
 let sT=null,sMode='',sPart=false,sPhEd=false;
 function openSheet(mode,i){const t=lastTr[i];if(!t)return;sT=Object.assign({i},t);sMode=mode;sPart=false;sPhEd=false;renderSheet();$('#sSheet').hidden=false;const b=$('#sSheet .spn button:not([data-sclose])');if(b)b.focus()}
