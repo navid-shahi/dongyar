@@ -531,8 +531,23 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 
 #fundbox[open]>summary .stn,#loanbox[open]>summary .stn,#cardsbox[open]>summary .stn,#phbox[open]>summary .stn{display:none}
 
-#tab-fund details>summary .sth b::before,#phbox>summary .sth b::before{content:"\25C0";font-size:.8em;margin-inline-end:9px;font-weight:400}
-#tab-fund details[open]>summary .sth b::before,#phbox[open]>summary .sth b::before{content:"\25BC"}
+
+/* v57: one marker for every collapsible: a drawn triangle (◀ closed / ▼ open), same colour and size everywhere */
+details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+details>summary::before,#tab-fund details>summary .sth b::before,#phbox>summary .sth b::before{content:"";display:inline-block;width:0;height:0;border-style:solid;border-width:5px 7px 5px 0;border-color:transparent var(--mute) transparent transparent;margin-inline-end:9px;vertical-align:middle;position:relative;top:-1px}
+details[open]>summary::before,#tab-fund details[open]>summary .sth b::before,#phbox[open]>summary .sth b::before{border-width:7px 5px 0 5px;border-color:var(--mute) transparent transparent transparent}
+#tab-fund details>summary::before,#phbox>summary::before{content:none;display:none}
+
+/* v58: logo starts below the gear; roomier message sheet */
+.hero{padding-top:calc(70px + env(safe-area-inset-top,0px))}
+#sSheet .ssum{margin-bottom:10px}
+#sSheet .spre{margin:0 0 14px}
+#sSheet .sph{margin:0 0 16px;padding:12px 14px}
+#sSheet .sph .note{margin-top:10px;line-height:1.9}
+#sSheet .sph .row+.note,#sSheet .sph .row+.err{margin-top:10px}
+#sSheet .sgo{gap:10px}
+#sSheet .sgo2{margin-top:10px;gap:10px}
+#sSheet .sgo2 button{min-height:48px}
 </style>
 </head>
 <body>
@@ -612,7 +627,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <button id="sgNew" style="margin-top:12px">+ حساب مشترک جدید</button>
 </details></div></section>
 
-<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span><span class="stn">برای پیامک و واتساپ مستقیم</span></summary>
+<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span><span class="stn">برای ارسال پیامک وضعیت حساب</span></summary>
 <div class="empty" style="margin-top:6px">شماره‌ی موبایل هر نفر رو اینجا ثبت کن تا دکمه‌های پیامک و واتساپ توی «تسویه» مستقیم همون مخاطب رو باز کنن. تلگرام شماره رو نمی‌گیره؛ پیام آماده می‌شه و مخاطب رو خودت انتخاب می‌کنی.</div>
 <div id="phList"></div>
 <button id="phNew" style="margin-top:10px">+ افزودن شماره موبایل</button>
