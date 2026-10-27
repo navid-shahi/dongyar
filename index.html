@@ -437,8 +437,6 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 #esec #amr .vw .chk{flex:1 1 100%;height:auto;min-height:44px;font-size:14px;color:var(--ink);margin:8px 0 0;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}
 #esec #amr .vw .chk b{font-weight:700}
 #esec .vw .note{margin-top:4px}
-#kbDone{position:fixed;left:12px;bottom:12px;z-index:40;min-height:44px;padding:0 18px;border-radius:22px;box-shadow:0 4px 14px rgba(0,0,0,.28);display:inline-flex;align-items:center;gap:6px;font-size:15px}
-#kbDone[hidden]{display:none}
 
 /* v45: settle tab — colored balance cards, compact grouped payments */
 .pbal{display:grid;gap:8px;border:0;overflow:visible}
@@ -523,6 +521,13 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 .pph{font-size:12px;color:var(--mute);text-align:right}
 .lnrow .lnn{margin:0 0 6px;padding-inline-start:2px}
 #lnForm select{width:100%}
+
+.fdf select{flex:0 0 36%}.fdf input#ccN{flex:1 1 64%;padding-inline:8px;letter-spacing:0;font-size:16px}
+.crow .ca{flex-wrap:wrap}.crow .ca input{flex:1 1 100%;padding-inline:8px;letter-spacing:0;font-size:16px}
+
+#kbDone{position:fixed;right:12px;left:auto;bottom:12px;z-index:40;min-height:38px;padding:0 14px;border-radius:19px;box-shadow:0 3px 12px rgba(0,0,0,.25);display:inline-flex;align-items:center;gap:5px;font-size:14px}
+#kbDone[hidden]{display:none}
+#phbox>summary{display:block;font-weight:700}#phbox .fdf input{text-align:left}
 </style>
 </head>
 <body>
@@ -602,9 +607,16 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <button id="sgNew" style="margin-top:12px">+ حساب مشترک جدید</button>
 </details></div></section>
 
-
-
-
+<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span><span class="stn">برای پیامک و واتساپ مستقیم · اختیاری</span></summary>
+<div class="empty" style="margin-top:6px">شماره‌ی موبایل هر نفر رو اینجا ثبت کن تا دکمه‌های پیامک و واتساپ توی «تسویه» مستقیم همون مخاطب رو باز کنن.</div>
+<div id="phList"></div>
+<button id="phNew" style="margin-top:10px">+ افزودن شماره موبایل</button>
+<div id="phForm" hidden>
+<div class="fdf"><select id="phP" aria-label="نام"></select><input id="phN" inputmode="tel" dir="ltr" placeholder="۰۹۱۲ ۳۴۵ ۶۷۸۹" autocomplete="off" aria-label="شماره موبایل"></div>
+<div class="row" style="margin-top:8px;flex-wrap:wrap"><button class="p" id="phAdd">ثبت</button><button id="phCancel">انصراف</button></div>
+<div class="err" id="phErr" role="status"></div>
+</div>
+</details></section>
 </div>
 
 <div id="tab-fund" class="tab" hidden>
@@ -857,7 +869,13 @@ function prev0(){const el=$('#prev');
   if(b>0&&v>0){const va=Math.round(b*v);el.hidden=false;el.textContent='مبلغ نهایی با ارزش افزوده: '+M(b+va)+' (ارزش افزوده '+M(va)+')'}else el.hidden=true;return}
  const r=invCalc();el.hidden=false;el.textContent=r.err?'':'جمع کل فاکتور: '+M(r.total)+' ('+noteTxt(r.note)+')'}
 
-function renderPeople(){$('#pcount').textContent=S.people.length?fmt(S.people.length)+' نفر':'';if(renDr&&!S.people.includes(renDr.p)){renDr=null;$('#renBox').innerHTML=''}
+function renderPhones(){const ph=S.phone||{},ps=PL().filter(p=>ph[p]),free=PL().filter(p=>!ph[p]);
+ $('#phBadge').textContent=ps.length?fmt(ps.length)+' شماره':'';
+ $('#phList').innerHTML=ps.length?ps.map(p=>`<div class="crow"><span class="nm">${av(p)}${esc(dn(p))}</span><span class="cv"><b dir="ltr">${phShow(ph[p])}</b><button data-phe="${esc(p)}">ویرایش</button><button class="x" data-phd="${esc(p)}">حذف</button></span></div>`).join(''):'<div class="empty">هنوز شماره‌ای ثبت نشده.</div>';
+ $('#phNew').hidden=phForm||!free.length;$('#phForm').hidden=!phForm;
+ const opts=(phEd?[phEd]:free),cs=$('#phP').value;$('#phP').innerHTML=(phEd?'':'<option value="">انتخاب نام</option>')+opts.map(p=>`<option value="${esc(p)}">${esc(dn(p))}</option>`).join('');if(opts.includes(cs))$('#phP').value=cs;if(phEd)$('#phP').value=phEd;$('#phP').disabled=!!phEd}
+function phReset(){phForm=false;phEd=null;$('#phN').value='';$('#phErr').textContent='';renderPhones()}
+function renderPeople(){renderPhones();$('#pcount').textContent=S.people.length?fmt(S.people.length)+' نفر':'';if(renDr&&!S.people.includes(renDr.p)){renDr=null;$('#renBox').innerHTML=''}
  const ls=Object.keys(S.link),hs=Object.values(S.link);
  $('#people').innerHTML=S.people.length?PL().map(p=>`<span class="chip">${av(p)}<span class="pnw"><span class="pn">${esc(dn(p))}</span>${(S.phone||{})[p]?`<span class="pph" dir="ltr">${phShow(S.phone[p])}</span>`:''}</span><button class="tg" data-kid="${esc(p)}" title="تغییر نوع">${S.kids[p]?'کودک':'بزرگسال'}</button><button class="tg" data-ren="${esc(p)}">ویرایش</button><button class="x" data-del="${esc(p)}" aria-label="حذف ${esc(p)}">حذف</button></span>`).join(''):'<span class="empty">هنوز کسی اضافه نشده.</span>';
  const opts=PL().map(p=>`<option value="${esc(p)}">${esc(dn(p))}</option>`).join('');
@@ -905,7 +923,7 @@ function renderList(){sortEx();
 }
 function cardFmt(d){return String(d).replace(/(.{4})(?=.)/g,'$1 ')}
 $('#result').addEventListener('click',async e=>{const b=e.target.closest('[data-cp]');if(!b)return;toast(await copyTxt(b.dataset.cp)?'شماره کارت کپی شد ✓':'کپی نشد')});
-let cardEd=null,fseg=1,ccForm=false,fdEd=null;
+let cardEd=null,fseg=1,ccForm=false,fdEd=null,phForm=false,phEd=null;
 function cardRowHTML(p){const c=S.card&&S.card[p],ed=cardEd===p||!c;
  const mid=ed?`<span class="ca"><input inputmode="numeric" dir="ltr" placeholder="۱۶ رقم" value="${esc(c?cardFmt(c):'')}" aria-label="شماره کارت ${esc(dn(p))}" autocomplete="off"><button class="p" data-cs="${esc(p)}">ثبت</button>${c?`<button data-cx="${esc(p)}">انصراف</button>`:''}</span>`
   :`<span class="cv"><bdi dir="ltr">${cardFmt(c)}</bdi><button data-cp="${c}">کپی</button><button data-ce="${esc(p)}">ویرایش</button><button class="x" data-cd="${esc(p)}">حذف</button></span>`;
@@ -979,6 +997,17 @@ $('#ccAdd').onclick=()=>{const er=$('#ccErr');er.textContent='';const pn=$('#ccP
  if(!pn){er.textContent='اول نام رو انتخاب کن.';return}
  if(d.length!==16){er.textContent='شماره‌ی کارت باید ۱۶ رقم باشه.';return}
  S.card=S.card||{};S.card[pn]=d;ccForm=false;$('#ccN').value='';save();renderFund();renderResult();toast('شماره‌ی کارت ذخیره شد ✓')};
+$('#phNew').onclick=()=>{if(!S.people.length){return}phForm=true;phEd=null;renderPhones();$('#phN').value='';$('#phErr').textContent='';$('#phP').focus()};
+$('#phCancel').onclick=phReset;
+$('#phN').onkeydown=e=>{if(e.key==='Enter')$('#phAdd').click()};
+$('#phN').oninput=()=>{$('#phErr').textContent=''};
+$('#phAdd').onclick=()=>{const er=$('#phErr');er.textContent='';const pn=$('#phP').value,v=phNorm(sp1($('#phN').value));
+ if(!pn){er.textContent='اول نام رو انتخاب کن.';return}
+ if(!v){er.textContent='شماره‌ی موبایل معتبر نیست (مثل ۰۹۱۲۳۴۵۶۷۸۹).';return}
+ const was=phEd;S.phone=S.phone||{};S.phone[pn]=v;phForm=false;phEd=null;$('#phN').value='';save();renderPeople();toast(was?'شماره ویرایش شد ✓':'شماره ذخیره شد ✓')};
+$('#phList').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.phe){phEd=b.dataset.phe;phForm=true;renderPhones();$('#phN').value=phShow((S.phone||{})[phEd]||'');$('#phErr').textContent='';$('#phN').focus()}
+ else if(b.dataset.phd){const p=b.dataset.phd;undoable('شماره حذف شد',()=>{if(S.phone)delete S.phone[p];if(phEd===p)phReset();save();renderPeople()})}};
 $('#fundEnable').onclick=()=>{FD().on=true;save();fdReset();renderPeople();all();toast('تنخواه فعال شد ✓')};
 $('#fundDisable').onclick=()=>{const f=FD(),er=$('#fundErr');er.textContent='';
  if(f.deposits.length||S.expenses.some(x=>payersOf(x)[FUND]!==undefined)||S.payments.some(x=>x.from===FUND||x.to===FUND)){er.textContent='تنخواه واریزی یا خرج ثبت‌شده داره. اول اون‌ها رو حذف کن.';return}
@@ -1687,7 +1716,7 @@ function deleteEvent(id){DB.events=DB.events.filter(x=>x.id!==id);if(DB.activeId
 function goHome(){save();DB.activeId=null;renderHome();setView('home')}
 function openEvent(id){
  const ev=DB.events.find(e=>e.id===id);if(!ev)return;
- DB.activeId=id;S=ev.data;editId=null;sgDr=null;fdEd=null;cardEd=null;fseg=1;ccForm=false;fdReset();$('#sharedbox').open=Object.keys(S.link).length>0;payList=[];payAmt={};
+ DB.activeId=id;S=ev.data;phForm=false;phEd=null;editId=null;sgDr=null;fdEd=null;cardEd=null;fseg=1;ccForm=false;fdReset();$('#sharedbox').open=Object.keys(S.link).length>0;payList=[];payAmt={};
  setMode(1);cancelEdit();$('#trip').value=S.trip;setTrip();renderPeople();all();
  showTab(S.people.length?'exp':'group');showForm(false);setView('app')}
 $('#evlist').onclick=e=>{const d=e.target.dataset;
@@ -1728,7 +1757,7 @@ renderHome();setView('home');
  bar.innerHTML='<svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> تمام';
  document.body.appendChild(bar);
  const vv=window.visualViewport;
- function place(){if(bar.hidden)return;const off=vv?Math.max(0,window.innerHeight-(vv.height+vv.offsetTop)):0;bar.style.bottom=(off+12)+'px'}
+ function place(){if(bar.hidden)return;let off=vv?Math.max(0,window.innerHeight-(vv.height+vv.offsetTop)):0;if(off<80)off=330;bar.style.bottom=(off+10)+'px'}
  function done(){const a=document.activeElement;if(isTxt(a))a.blur();bar.hidden=true}
  bar.addEventListener('pointerdown',e=>e.preventDefault());
  bar.addEventListener('mousedown',e=>e.preventDefault());
