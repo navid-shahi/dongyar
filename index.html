@@ -513,7 +513,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 .tc2b .tv{margin:0!important;flex:1 1 105px;font-size:15px!important;white-space:nowrap}
 .tc2b .tbn{display:flex;gap:6px;flex:1 1 190px}
 .tc2 .tc2b .tbn button{flex:1 1 0;min-height:38px;font-size:13.5px;font-weight:500;padding:0 8px;min-width:0}
-#tab-fund details>summary{display:block}
+#tab-fund details>summary{display:block;list-style:none}#tab-fund details>summary::-webkit-details-marker{display:none}
 .sth{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .stbadge{font-size:12px;font-weight:600;color:var(--acc);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:0 10px;line-height:22px}.stbadge:empty{display:none}
 .stn{display:block;font-size:12.5px;font-weight:400;color:var(--mute);margin-top:2px;line-height:1.7}
@@ -525,9 +525,14 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 .fdf select{flex:0 0 36%}.fdf input#ccN{flex:1 1 64%;padding-inline:8px;letter-spacing:0;font-size:16px}
 .crow .ca{flex-wrap:wrap}.crow .ca input{flex:1 1 100%;padding-inline:8px;letter-spacing:0;font-size:16px}
 
-#phbox>summary{display:block;font-weight:700}#phbox .fdf input{text-align:left}
+#phbox>summary{display:block;list-style:none;font-weight:700}#phbox>summary::-webkit-details-marker{display:none}#phbox .fdf input{text-align:left}
 
 .tc2a .nm{border:1px solid var(--line);background:var(--soft);border-radius:99px;padding:3px 12px 3px 4px;max-width:44%}
+
+#fundbox[open]>summary .stn,#loanbox[open]>summary .stn,#cardsbox[open]>summary .stn,#phbox[open]>summary .stn{display:none}
+
+#tab-fund details>summary .sth b::before,#phbox>summary .sth b::before{content:"\25C0";font-size:.8em;margin-inline-end:9px;font-weight:400}
+#tab-fund details[open]>summary .sth b::before,#phbox[open]>summary .sth b::before{content:"\25BC"}
 </style>
 </head>
 <body>
@@ -607,7 +612,7 @@ button.x,.tr button,.ib,.chip button{border-radius:10px}
 <button id="sgNew" style="margin-top:12px">+ حساب مشترک جدید</button>
 </details></div></section>
 
-<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span></summary>
+<section><details id="phbox"><summary><span class="sth"><b>شماره موبایل</b><span class="stbadge" id="phBadge"></span></span><span class="stn">برای پیامک و واتساپ مستقیم</span></summary>
 <div class="empty" style="margin-top:6px">شماره‌ی موبایل هر نفر رو اینجا ثبت کن تا دکمه‌های پیامک و واتساپ توی «تسویه» مستقیم همون مخاطب رو باز کنن. تلگرام شماره رو نمی‌گیره؛ پیام آماده می‌شه و مخاطب رو خودت انتخاب می‌کنی.</div>
 <div id="phList"></div>
 <button id="phNew" style="margin-top:10px">+ افزودن شماره موبایل</button>
